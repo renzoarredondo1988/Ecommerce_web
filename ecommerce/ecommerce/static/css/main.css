@@ -1,0 +1,6 @@
+/*css global  igual que el html*/ 
+/* este lo agregamos a los setings, pero a diferencia de los templates hay que agregar cada app tambien*/
+
+body{
+    background-color:blue;
+}
