@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Probar Funcionalidades de Backend Django</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        button {
+            margin: 10px;
+        }
+
+        #result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Prueba de Funcionalidades de Backend</h1>
+
+    <!-- Botón para obtener el catálogo -->
+    <h2>Catálogo de Productos</h2>
+    <button onclick="mostrarCatalogo()">Mostrar Catálogo</button>
+
+    <!-- Formulario para mostrar el detalle de un producto -->
+    <h2>Detalle de Producto</h2>
+    <input type="text" id="producto-id" placeholder="Ingrese ID del Producto">
+    <button onclick="mostrarDetalleProducto()">Mostrar Detalle del Producto</button>
+
+    <!-- Botón para obtener los juegos -->
+    <h2>Lista de Juegos</h2>
+    <button onclick="mostrarJuegos()">Mostrar Juegos</button>
+
+    <!-- Formulario para buscar productos -->
+    <h2>Buscar Productos</h2>
+    <input type="text" id="buscar-query" placeholder="Buscar por nombre">
+    <input type="text" id="categoria-id" placeholder="Categoría ID">
+    <input type="text" id="juego-id" placeholder="Juego ID">
+    <input type="number" id="precio-min" placeholder="Precio Mínimo" value="0">
+    <input type="number" id="precio-max" placeholder="Precio Máximo" value="1000">
+    <button onclick="buscarProductos()">Buscar Productos</button>
+
+    <!-- Botón para obtener categorías -->
+    <h2>Categorías</h2>
+    <button onclick="mostrarCategorias()">Mostrar Categorías</button>
+
+    <!-- Sección para mostrar los resultados -->
+    <div id="result"></div>
+
+    <script>
+        // Función para mostrar el catálogo
+        function mostrarCatalogo() {
+            fetch('/api/catalogo/')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('result').innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        // Función para mostrar el detalle de un producto por ID
+        function mostrarDetalleProducto() {
+    const productoId = document.getElementById('producto-id').value;
+    fetch(`/api/producto/${productoId}/`)  // Cambiar 'productos' por 'producto'
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('result').innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+        })
+        .catch(error => console.error('Error:', error));
+}
+
+
+        // Función para mostrar los juegos
+        function mostrarJuegos() {
+            fetch('/api/juegos/')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('result').innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        // Función para buscar productos con filtros
+        function buscarProductos() {
+    const query = document.getElementById('buscar-query').value;
+    const categoria = document.getElementById('categoria-id').value;
+    const juego = document.getElementById('juego-id').value;
+    const precioMin = document.getElementById('precio-min').value;
+    const precioMax = document.getElementById('precio-max').value;
+
+    let url = `/api/buscar/?q=${query}&categoria_id=${categoria}&juego_id=${juego}&precio_min=${precioMin}&precio_max=${precioMax}`;
+    
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('result').innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+        })
+        .catch(error => console.error('Error:', error));
+}
+
+
+        // Función para mostrar las categorías
+        function mostrarCategorias() {
+            fetch('/api/categorias/')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('result').innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+                })
+                .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+</html>

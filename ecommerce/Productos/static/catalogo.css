@@ -1,0 +1,114 @@
+/* Estilos generales */
+.card {
+    background-color: #000100;
+    color: white;
+    border: 3px solid white;
+    padding: 10px;
+    text-align: center;
+    border-radius: 8px; /* Bordes redondeados */
+    overflow: hidden; /* Asegura que el contenido no se desborde */
+    transition: transform 0.3s; /* Transición suave */
+    margin-right: 30px; /*Distancia entre card, una al lado de la otras*/
+    position: relative;
+    bottom: 0;
+    right: 0;
+    width: 234px;
+    height: 320px;
+  }
+  
+  .card-container{
+    width: 1209px; /* Ancho específico */
+    height: 320px; /* Alto específico */
+    
+    margin-bottom: 50px; /*Distancia, una abajo de la otras*/
+    margin-left: 80px;
+
+  }
+  .card:hover {
+    transform: scale(1.05); /* Efecto de zoom al pasar el mouse */
+  }
+  
+  .card-img-top {
+    width: 100%;
+    height: auto; /* Mantiene la relación de aspecto de la imagen */
+  }
+  
+  .card-body {
+    padding: 10px;
+    display: flex;
+    flex-direction: column; /* Alinea el contenido verticalmente */
+  }
+  
+  .product-name {
+    font-size: 1.2em;
+    margin: 10px 0;
+  }
+  
+  .product-price {
+    font-size: 1.1em;
+    margin: 10px 0;
+  }
+  
+  .ver-button {
+    background-color: #007bff; /* Color de fondo del botón */
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 15px; /* Bordes redondeados */
+    text-align: center;
+    display: block;
+    width: 75px;
+    height:29px;
+    line-height: 29px;
+    margin: 40px  20px; /*Margen superior para bajarlo un poco más, izquierda*/
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    border: 1px solid #363eff;
+    position: absolute;
+    right: 0;
+  }
+
+  .ver-button::before { /* Texto VER */
+    content: "VER"; 
+    position: absolute;
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+  }
+  
+  .card-img-top{ /*Imagen*/
+    width: 180px;
+    height: 180px;
+    object-fit: contain;
+    margin: 0 auto;
+    border: 1px solid #363eff;
+    border-radius: 5px;
+    display: flex;
+    align-content: center;
+  }
+  
+  .product-name{ /*Nombre del Producto*/
+    font-size: 19px;
+    text-align: center;
+    margin-top: 210px; /*Altura*/
+    position: absolute;
+    top: 0;
+    left:50%;
+    transform: translate(-50%);
+    width: 80%;
+  }
+  
+  .product-price{ /*Precio*/
+    font-size: 20px; /*Aumento de tamaño*/
+    position: absolute;
+    bottom: 5px; /*Posición para bajar un poco más*/
+    left: 15%; /*Ir a la derecha*/
+    display: flex;
+    align-items: center;     
+    content: ¨---¨;
+  }
+  .card-section{
+    display: flex;
+  }
