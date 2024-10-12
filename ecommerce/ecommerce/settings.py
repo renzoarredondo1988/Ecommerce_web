@@ -137,3 +137,7 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+MERCADO_PAGO_ACCESS_TOKEN = 'APP_USR-5285721843882809-101119-da1cfb4649ba02083771e8f3bf6a83ad-238786920'
+MERCADO_PAGO_PUBLIC_KEY = 'APP_USR-3a6866da-6e61-4cc3-9215-4b3e6d9fec70'

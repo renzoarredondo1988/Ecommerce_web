@@ -15,5 +15,5 @@
 <form method="POST">
     {% csrf_token %}
     <button type="submit" name="metodo_pago" value="1">Método 1</button>
-    <button type="submit" name="metodo_pago" value="2">Método 2</button>
+    <a href="{% url 'metodo_pago' %}">Pagar</a>
 </form>
