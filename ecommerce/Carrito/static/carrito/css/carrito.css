@@ -1,0 +1,106 @@
+/* Color principal: #363EFF
+Color secundario: #000100
+Color acento: #FC6E22
+fuente: ROBOTO */
+
+.cart-btn{
+    position: fixed;
+    top: 90vh;
+    right: 40px;
+    background-color: #FC6E22;
+    padding: 10px;
+    border-radius: 50%;
+    height: 24px;
+    width: 24px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.cart-btn:hover{
+    cursor: pointer;
+    opacity: 0.9;
+}
+
+.cart-counter{
+    display: none;
+    position: fixed;
+    top: 89vh;
+    right: 27px;
+    color: #fff;
+    text-align: center;
+    background-color: #000100;
+    padding: 4px;
+    border-radius: 50%;
+    height: 17px;
+    width: 17px;
+    font-size: 15px;
+}
+
+/* MODAL */
+.modal-overlay{
+    display: none;
+    background: linear-gradient(#000100, #363EFF 80%);
+    background-repeat: no-repeat;
+    height: 100%;
+    margin: 0;
+    background-attachment: fixed;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+.modal-container{
+    display: none;
+    background: linear-gradient(#000100, #363EFF);
+    background-repeat: no-repeat;
+    height: 100%;
+    margin: 0;
+    background-attachment: fixed;
+    box-shadow: 0px 3px 6px #00000029;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 500px;
+    width: 100%;
+    z-index: 1;
+    max-height: 80vh;
+    overflow-y: auto;
+    border: 2px solid #fff;
+    box-shadow: inset 0 0 10px #363EFF, 0 0 10px #363EFF, 0 0 10px #363EFF;
+}
+
+.modal-container::-webkit-scrollbar{
+    display: none;
+}
+
+.modal-close{
+    float: right;
+    cursor: pointer;
+}
+
+.modal-title{
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #fff;
+    text-shadow: 0 0 5px #363EFF, 0 0 5px #363EFF, 0 0 5px #363EFF, 0 0 5px #363EFF;
+}
+.modal-body{
+    color: #fff;
+    border: 2px solid #fff;
+    box-shadow: inset 0 0 10px #363EFF, 0 0 10px #363EFF, 0 0 10px #363EFF;
+}
+/* FIN MODAL */
+#imagen1{
+    justify-content: center; /* Centramos horizontalmente */
+    align-items: center; /* Centramos verticalmente */
+    max-width: 100%; /* La imagen no será más grande que el ancho de la pantalla */
+    height: auto; /* Mantiene la proporción de la imagen */
+    display: block; /* Eliminamos el comportamiento inline por defecto de las imágenes */
+}
+/* MODAL BODY */
