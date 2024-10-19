@@ -1,5 +1,8 @@
 <!-- archivo vacio, es necesario configurar la ruta del header y footer  global -->
-{% extends "base.html" %} 
+{% extends "GestionUsuarios/base.html" %}
+
+
+{% load static %}
 
 {% block content %}
     <div class="logo">
@@ -10,7 +13,7 @@
             <h2>Regístrate</h2>
         </div>
         <div class="formRegister">
-            <form action="{% url 'registro' %}" method="post" id="formRegister">{% csrf_token %} 
+            <form action="{% url 'registro_usuario' %}" method="post" id="formRegister">{% csrf_token %} 
                 <div>
                     <label for="register_name">Nombre:</label>
                     <input type="text" id="register_name" name="register_name" required>
@@ -49,5 +52,7 @@
             </form>
         </div>
     </div>
+    <script src="{% static 'GestionUsuarios/js/register.js' %}"></script>
+
     
 {% endblock %}

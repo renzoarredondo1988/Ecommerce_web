@@ -127,14 +127,14 @@ MEDIA_URL = '/media/'
 
 MEDIA_ROOT = BASE_DIR / 'media'
 
-"""STATICFILES_DIRS = [ #agregamos las rutas del proyecto y de la aplicacion
-    BASE_DIR / 'static',
+STATICFILES_DIRS = [ #agregamos las rutas del proyecto y de la aplicacion
+    #BASE_DIR / '/static',
     BASE_DIR / 'GestionUsuarios/static',
     BASE_DIR / 'InterfazGeneral/static',
     BASE_DIR / 'PagosyPedidos/static',
     BASE_DIR / 'Productos/static',
     BASE_DIR / 'Carrito/static',
-]"""
+]
 
 
 # Default primary key field type

@@ -1,4 +1,67 @@
-/*const REGISTER_URL = '/usuarios/registro/';
+/*const REGISTER_URL = '/usuarios/';
+const formRegister = document.getElementById("formRegister");
+
+formRegister.addEventListener('submit', (event) => {
+    event.preventDefault();
+    registerUser();
+    formRegister.reset();
+});
+
+const registerUser = () => {
+    // Obtener valores y validaciones como antes...
+    
+    const data = {
+        nombre: document.getElementById('register_name').value,
+        apellido: document.getElementById('register_lastname').value,
+        pais: document.getElementById('register_country').value,
+        correo: document.getElementById('register_email').value,
+        contraseña: document.getElementById('register_password').value,
+    };
+
+    // Obtener el token CSRF del documento
+    const csrftoken = getCookie('csrftoken');
+
+    fetch(REGISTER_URL, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': csrftoken // Incluir el token CSRF
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(result => {
+        console.log(result.success);
+        if (result.success === true) {
+            viewAlert("Se ha registrado un usuario nuevo", "Bienvenido!");
+        } else {
+            viewAlert("No se ha registrado un usuario nuevo", "Algo ha salido mal. Intenta de nuevo");
+            console.error(result.error);
+        }
+    })
+    .catch(error => {
+        console.error(error);
+        viewAlert("Error!", "Algo ha salido mal. Intenta de nuevo");
+    });
+}
+
+// Función para obtener el token CSRF
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}*/
+
+const REGISTER_URL = '/usuarios/';
 const formRegister = document.getElementById("formRegister")
 formRegister.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -74,4 +137,4 @@ const registerUser = () => {
         console.error(error);
         viewAlert("Error!", "Algo ha salido mal. Intenta de nuevo");
     })
-}*/
+}

@@ -1,8 +1,9 @@
 # Create your models here.
 from django.db import models
 
+
 class Validacion(models.Model):#heredamos para que interactuen directamente con la orm de django
-    correo = models.CharField(max_length=45, null=True)
+    correo = models.EmailField(max_length=45, null=True)
     contraseña = models.CharField(max_length=45, null=True)
 
     def __str__(self):#retornamso el mailcomo cadena de texto
