@@ -1,4 +1,6 @@
-/*const REGISTER_URL = '/usuarios/registro/';
+const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+const REGISTER_URL = "{% url 'registro' %}";
+
 const formRegister = document.getElementById("formRegister")
 formRegister.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -56,7 +58,8 @@ const registerUser = () => {
     fetch(REGISTER_URL, {
         method:'POST',
         headers: {
-            'Content-Type': 'application/json' 
+            'Content-Type': 'application/json',
+            'X-CSRFToken': csrftoken  
         },
         body: JSON.stringify(data)
     })
@@ -74,4 +77,10 @@ const registerUser = () => {
         console.error(error);
         viewAlert("Error!", "Algo ha salido mal. Intenta de nuevo");
     })
+<<<<<<< HEAD
 }*/
+=======
+    
+    console.log(REGISTER_URL);
+}
+>>>>>>> origin/US05
