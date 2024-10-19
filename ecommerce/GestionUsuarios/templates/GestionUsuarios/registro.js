@@ -1,3 +1,6 @@
+const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+const REGISTER_URL = "{% url 'registro' %}";
+
 const formRegister = document.getElementById("formRegister")
 formRegister.addEventListener('submit', (event) => {
     event.preventDefault();
