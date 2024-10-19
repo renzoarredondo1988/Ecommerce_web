@@ -58,7 +58,8 @@ const registerUser = () => {
     fetch(REGISTER_URL, {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json' 
+            'Content-Type': 'application/json',
+            'X-CSRFToken': csrftoken  
         },
         body: JSON.stringify(data)
     })
@@ -76,4 +77,6 @@ const registerUser = () => {
         console.error(error);
         viewAlert("Error!", "Algo ha salido mal. Intenta de nuevo");
     })
+    
+    console.log(REGISTER_URL);
 }
