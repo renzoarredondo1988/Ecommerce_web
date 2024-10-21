@@ -6,15 +6,25 @@ from django.contrib.auth.hashers import make_password  # Importamos para hash de
 from django.views.decorators.csrf import csrf_exempt
 @csrf_exempt
 def registerUser(request):
-    
+   
     if request.method == 'POST':  # Verificamos que el método de la solicitud sea POST
-        try:
-            data = json.loads(request.body)  # Cargamos los datos del cuerpo de la solicitud en formato JSON
-        except json.JSONDecodeError:
-            return JsonResponse({'success': False, 'message': 'Datos JSON inválidos.'}, status=400)
+        print(request.body.decode('utf-8')) #sin la aclaracion em mostraria solo bits
+        #try:
+            #data = json.loads(request.body)
+        #print(data)  # Cargamos los datos del cuerpo de la solicitud en formato JSON
+        #except json.JSONDecodeError:
+            #return JsonResponse({'success': False, 'message': 'Datos JSON inválidos.'}, status=400)
+        
+        mail =  request.POST.get('register_email')   # obtenemso el crudo del html xD
+        contraseña = request.POST.get('register_password') 
+        confirmarContraseña=request.POST.get('confirm_password')
 
-        mail = data.get('correo')  # Obtenemos el correo del JSON
-        contraseña = data.get('contraseña')  # Obtenemos la contraseña del JSON
+        if contraseña != confirmarContraseña:
+            #return JsonResponse({'success': False, 'message': 'Contraseña incorrecta.'}, status=409)
+          return render(request, 'GestionUsuarios/registro.html', {
+                'error': 'Las contraseñas no coinciden.Vuelva a intentarlo',
+                'register_password': contraseña  # Volver a rellenar el campo de correo
+            })
 
         if Validacion.objects.filter(correo=mail).exists():  # Comprobamos si el correo ya existe en la base de datos
             return JsonResponse({'success': False, 'message': 'El correo ya está registrado.'}, status=409)
@@ -27,7 +37,7 @@ def registerUser(request):
         return JsonResponse({'success': True, 'message': 'Usuario registrado correctamente'}, status=201)
 
     # Si no es un método POST, devolvemos un error 405 (Method Not Allowed)
-        return JsonResponse({'success': False, 'message': 'Método no permitido.'}, status=405)
+   
     return render(request,'GestionUsuarios/registro.html')
 
 

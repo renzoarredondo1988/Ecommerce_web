@@ -59,7 +59,7 @@ function getCookie(name) {
         }
     }
     return cookieValue;
-}*/
+}
 
 const REGISTER_URL = '/usuarios/';
 const formRegister = document.getElementById("formRegister")
@@ -137,4 +137,4 @@ const registerUser = () => {
         console.error(error);
         viewAlert("Error!", "Algo ha salido mal. Intenta de nuevo");
     })
-}
+}*/

@@ -1,5 +1,5 @@
 const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
-const REGISTER_URL = "{% url 'registro' %}";
+const REGISTER_URL = "{% url 'registro_usuario' %}";
 
 const formRegister = document.getElementById("formRegister")
 formRegister.addEventListener('submit', (event) => {
@@ -77,10 +77,6 @@ const registerUser = () => {
         console.error(error);
         viewAlert("Error!", "Algo ha salido mal. Intenta de nuevo");
     })
-<<<<<<< HEAD
-}*/
-=======
     
     console.log(REGISTER_URL);
 }
->>>>>>> origin/US05
