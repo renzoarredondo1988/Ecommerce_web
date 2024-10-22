@@ -1,67 +1,266 @@
-/* Fondo con degradado de 180 grados --ELIMINAR EN EL CASO DE SER ELIMINADO */
+/* html {
+  transform: scale(0.85); 
+  transform-origin: top left;
+} */
+
 body {
-  background: linear-gradient(180deg, #000100, #04035a);
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden; 
+  margin: 0;
+}
+
+
+body{
+  background: linear-gradient(#000100 40%, #363eff);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+
+}
+
+/* Estilos generales */
+  .card{
+    background-color: #000100;
+    color: white;
+    border: 1px solid #363eff;
+   /* border: 1px solid white;*/
+    padding: 10px;
+    text-align: center;
+    border-radius: 8px; /* Bordes redondeados */
+    overflow: hidden; /* Asegura que el contenido no se desborde */
+    transition: transform 0.3s; /* Transición suave */
+    margin-right: 30px; /*Distancia entre card, una al lado de la otras*/
+    position: relative;
+    width: 240px;
+    height: 320px;
+  }
+  .container.py-5 {
+    width: 100%; 
+    height: auto;
+    margin: 0 auto;
+  }
+  .card:hover {
+    transform: scale(1.05); /* Efecto de zoom al pasar el mouse */
+  }
+
+  
+  
+  .card-img-top {
+    width: 100%;
+    height: auto; /* Mantiene la relación de aspecto de la imagen */
+    max-height: 180px;
+    width: 100%;
+    height: auto;
+  }
+  
+  .card-body {
+    padding: 3px;
+    display: flex;
+    flex-direction: column; /* Alinea el contenido verticalmente */
+  }
+  
+  .product-name {
+    font-size: 1.2em;
+    margin: 10px 0;
+  }
+  
+  .product-price {
+    font-size: 1.1em;
+    margin: 10px 0;
+  }
+  
+  .btn.btn-primary{
+    background-color: #004AAD; /* Color de fondo del botón */
+    color: white;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 15px; /* Bordes redondeados */
+    text-align: center;
+    width: 75px;
+    height:29px;
+    line-height: 29px;
+    margin: 70px  30px; /*Margen superior para bajarlo un poco más, izquierda*/
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif; /* Fuente Roboto */
+    font-weight: normal;
+    font-size: 1rem;
+    border: 1px solid #363eff;
+    position: absolute;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .card-img-top{ /*Imagen*/
+    width: 180px;
+    height: 180px;
+    object-fit: contain;
+    margin: 0 auto;
+    border: 1px solid #363eff;
+    border-radius: 5px;
+    display: flex;
+    align-content: center;
+  }
+
+  .card-text{
+    display: flex;
+    margin-left: 1.5rem;
+    margin-top: 18px;
+    font-size: 18px;
+  }
+
+  
+/*Fltro*/
+
+.filter-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000100;
   color: white;
-  min-height: 100vh;
+  width: 1080px;
+  height: 60px;
+  border: 2px solid #363eff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  margin-left: 15px ;
+  margin-right: auto;
 }
 
-/* Estilos para el card */
-.card {
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-
-}
-
-
-
-.card-img-top {
-  border-radius: 8px 8px 0 0;
-  object-fit: cover;
-  max-height: 180px;
-}
-
-.card-body {
-  padding: 1.5rem;
-}
-
-.btn-ver-producto {
-  background-color: #0056b3;
+.filter-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: transparent;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
   border: none;
-  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+}
+.filter-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: transparent;
   color: white;
-  border-radius: 0.5rem;
-  text-transform: uppercase;
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s ease;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
 }
 
-.btn-ver-producto:hover {
-  background-color: #004494;
+/* Mover "Armadura" a la izquierda */
+.filter-item:nth-child(1) > 
+*:first-child {
+  margin-left: 60px; 
 }
 
-/* Modal personalizado */
+
+/* Mover "Arma" a la izquierda */
+.filter-item:nth-child(2) > 
+*:first-child {
+  margin-left: -80px; 
+}
+
+.filter-row > :nth-child(3) { 
+  width: 40%; 
+  margin-right: 80px;
+}
+
 .modal-content {
-  background-color: #1f2833;
-  color: #c5c6c7;
+  background-color: rgba(0, 0, 0, 0.8); /* Fondo gris con 80% de opacidad */
+  color: white;
+  border: 1px solid #363eff;
+  
+  border: 2px solid #363eff;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
 }
 
-.modal-header {
-  border-bottom: 1px solid #00c4cc;
+.modal-header h5 {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.modal-body img {
+  width: 180px;
+  height: 180px;
+  object-fit: contain;
+  margin: 0 auto;
+  border: 1px solid #363eff;
+  border-radius: 5px;
+  display: block; 
+}
+
+.modal-body p {
+  font-size: 1.1rem;
+  margin: 10px 0;
+  text-align: left; /* Texto alineado a la izquierda */
+}
+
+
+.modal-footer button {
+  background-color: #004AAD;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 15px;
+  text-align: center;
+  width: 150px;
+  font-family: 'Roboto', sans-serif; /* Fuente Roboto */
+  font-weight: normal;
+  font-size: 1rem;
+  border: 1px solid #363eff;
 }
 
 .modal-footer {
-  border-top: 1px solid #00c4cc;
+  display: flex;
+  justify-content: space-between; 
 }
 
-.list-group-item {
-  background-color: #1f2833;
-  color: white;
-  border: 1px solid #00c4cc;
+.btn .bi-cart-fill {
+  font-size: 1.1rem; 
 }
 
-.list-group-item:hover {
-  background-color: #00c4cc;
-  color: white;
-}
-
+/* Estilo personalizado para el form-range */
 input[type="range"] {
-  width: 100%;
+  height: 8px; /* Ajusta el grosor de la línea del filtro */
+  background: #363eff; /* Color de fondo de la línea */
+  border-radius: 5px;
+  outline: none;
 }
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px; /* Tamaño del círculo (thumb) */
+  height: 15px;
+  background: black; /* Color del círculo */
+  cursor: pointer;
+  border-radius: 50%;
+  border: 2px solid #363eff /* Borde del círculo */
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 15px; /* Tamaño del círculo */
+  height: 15px;
+  background: #004AAD; /* Color del círculo */
+  cursor: pointer;
+  border-radius: 50%;
+  border: 2px solid #FC6E22; /* Borde del círculo */
+}
+

@@ -1,70 +1,58 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" shrink-to-fit=no>
     <title>CodeHive</title>
-    
-    <!-- Enlace a Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Enlace a CSS personalizado -->
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="{% static 'assets/favicon.ico' %}">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Custom CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
-<body>
 
-    <!-- Cabecera -->
-    <header class="p-3 bg-dark text-white text-center">
-        <div class="container">
-            <div class="d-flex justify-content-between">
-                <h1>CodeHive</h1>
-                <div>
-                    <a href="#" class="text-white">Productos</a> | 
-                    <a href="#" class="text-white">Carrito</a>
-                </div>
+<body>
+    <!-- Filtro lateral -->
+    <div class="container">
+        <div class="row filter-container">
+            <div class="col-md-3 col-sm-6 filter-item d-flex align-items-center">
+                <input type="checkbox" id="armadura">
+                <label for="armadura">Armadura</label>
+            </div>
+            <div class="col-md-3 col-sm-6 filter-item d-flex align-items-center">
+                <input type="checkbox" id="arma">
+                <label for="arma">Arma</label>
+            </div>
+            <div class="col-md-6 col-sm-12 filter-item d-flex align-items-center">
+                <span id="precio-valor-min">$1</span>
+                <input type="range" class="form-range" id="filtro-precio" min="500" max="100000" step="500">
+                <span id="precio-valor-max">$10</span>
             </div>
         </div>
-    </header>
 
-    <!-- Contenido principal -->
-    <main class="container mt-4">
-        <div class="row">
-            <!-- Filtro lateral -->
-            <aside class="col-md-2">
-                <div class="list-group">
-                    <div class="list-group-item">Armaduras</div>
-                    <div class="list-group-item">Armas</div>
-                    <div class="list-group-item">Fortnite</div>
-                </div>
-                <label for="filtro-precio" class="form-label mt-3">Filtrar por precio:</label>
-                <input type="range" class="form-range" id="filtro-precio">
-            </aside>
-
-            <!-- Productos -->
-            <section class="col-md-10">
-                <div class="row g-4">
-                    {% for producto in productos %}
-                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                        <div class="card h-100 text-center bg-dark text-light">
-                            <img src="{% static 'Arma_skin.jpg' %}" class="card-img-top" alt="{{ producto.nombre }}">
-                            <div class="card-body d-flex flex-column">
-                                <h5 class="product-name">{{ producto.nombre }}</h5>
-                                <p class="product-price">${{ producto.precio }}</p>
-                                <button class="btn btn-primary mt-auto btn-ver-producto" data-id="{{ producto.id }}">Ver</button>
-                            </div>
+        <!-- Primera fila de tarjetas -->
+        <div class="container py-5">
+            <div class="row g-4">
+                {% for producto in productos %}
+                <div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-4">
+                    <div class="card h-100">
+                        <img src="{% static 'img/producto.jpg' %}" class="card-img-top" alt="{{ producto.nombre }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ producto.nombre }}</h5>
+                            <p class="card-text">${{ producto.precio }}</p>
+                            <button class="btn btn-primary btn-ver-producto" data-id="{{ producto.id }}">VER</button>
                         </div>
                     </div>
-                    {% endfor %}
                 </div>
-            </section>
+                {% endfor %}
+            </div>
         </div>
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-dark text-white text-center py-3">
-        <p>&copy; 2024 CodeHive</p>
-    </footer>
+    </div>
 
     <!-- Modal para mostrar el detalle del producto -->
     <div class="modal fade" id="productoModal" tabindex="-1" aria-labelledby="productoModalLabel" aria-hidden="true">
@@ -75,16 +63,27 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <!-- Aquí se llenarán los detalles del producto con JavaScript -->
-                    <p><strong>Nombre:</strong> <span id="modal-nombre"></span></p>
-                    <p><strong>Descripción:</strong> <span id="modal-descripcion"></span></p>
-                    <p><strong>Stock:</strong> <span id="modal-stock"></span></p>
-                    <p><strong>Categoría:</strong> <span id="modal-categoria"></span></p>
-                    <p><strong>Juego:</strong> <span id="modal-juego"></span></p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img id="modal-imagen" src="{% static 'img/producto.jpg' %}" alt="Imagen del producto"
+                                class="img-fluid">
+                        </div>
+                        <div class="col-md-6">
+                            <p><strong>Nombre:</strong> <span id="modal-nombre"></span></p>
+                            <p><strong>Descripción:</strong> <span id="modal-descripcion"></span></p>
+                            <p><strong>Stock:</strong> <span id="modal-stock"></span></p>
+                            <p><strong>Categoría:</strong> <span id="modal-categoria"></span></p>
+                            <p><strong>Juego:</strong> <span id="modal-juego"></span></p>
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-secondary">
+                        <i class="bi bi-cart-plus"></i>
+                    </button>
                 </div>
+                
             </div>
         </div>
     </div>
@@ -93,22 +92,20 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const modal = new bootstrap.Modal(document.getElementById('productoModal'));
-            
+
             document.querySelectorAll('.btn-ver-producto').forEach(button => {
                 button.addEventListener('click', function () {
                     const productoId = this.getAttribute('data-id');
-                    
+
                     fetch(`/productos/api/producto/${productoId}/`)
                         .then(response => response.json())
                         .then(data => {
-                            // Llenar el modal con los detalles del producto
                             document.getElementById('modal-nombre').innerText = data.nombre;
                             document.getElementById('modal-descripcion').innerText = data.descripcion;
                             document.getElementById('modal-stock').innerText = data.stock;
                             document.getElementById('modal-categoria').innerText = data['categoria__arma'] || data['categoria__ropa'];
                             document.getElementById('modal-juego').innerText = data['juego__nombre'];
-                            
-                            // Mostrar el modal
+
                             modal.show();
                         })
                         .catch(error => console.error('Error:', error));
@@ -116,10 +113,10 @@
             });
         });
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+    </script>
+
 </body>
+
 </html>
-
-
-
-
-
