@@ -1,0 +1,67 @@
+/* Fondo con degradado de 180 grados --ELIMINAR EN EL CASO DE SER ELIMINADO */
+body {
+  background: linear-gradient(180deg, #000100, #04035a);
+  color: white;
+  min-height: 100vh;
+}
+
+/* Estilos para el card */
+.card {
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+
+}
+
+
+
+.card-img-top {
+  border-radius: 8px 8px 0 0;
+  object-fit: cover;
+  max-height: 180px;
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+.btn-ver-producto {
+  background-color: #0056b3;
+  border: none;
+  padding: 0.5rem 1rem;
+  color: white;
+  border-radius: 0.5rem;
+  text-transform: uppercase;
+}
+
+.btn-ver-producto:hover {
+  background-color: #004494;
+}
+
+/* Modal personalizado */
+.modal-content {
+  background-color: #1f2833;
+  color: #c5c6c7;
+}
+
+.modal-header {
+  border-bottom: 1px solid #00c4cc;
+}
+
+.modal-footer {
+  border-top: 1px solid #00c4cc;
+}
+
+.list-group-item {
+  background-color: #1f2833;
+  color: white;
+  border: 1px solid #00c4cc;
+}
+
+.list-group-item:hover {
+  background-color: #00c4cc;
+  color: white;
+}
+
+input[type="range"] {
+  width: 100%;
+}

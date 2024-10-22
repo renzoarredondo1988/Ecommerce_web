@@ -1,18 +1,12 @@
 from django.shortcuts import render
 from GestionUsuarios.models import Producto, Categoria, Juego
-
 from django.db.models import Q
-from django.http import JsonResponse 
-#http response
-# o postman
+from django.http import JsonResponse
 
 # Obtener y mostrar datos del catálogo
 def api_mostrar_catalogo(request):
-    
-    productos = Producto.objects.all().values(
-        'id', 'nombre', 'descripcion', 'stock', 'categoria__arma', 'categoria__ropa', 'juego__nombre'
-    )
-    return JsonResponse(list(productos), safe=False)
+    productos = Producto.objects.all()  # Obtener todos los productos
+    return render(request, 'Productos/catalogo.html', {'productos': productos})  # Renderizar en el template
 
 # Recuperar los datos de una skin seleccionada
 def api_detalle_producto(request, producto_id):
@@ -25,11 +19,10 @@ def api_detalle_producto(request, producto_id):
     else:
         return JsonResponse({'error': 'Producto no encontrado'}, status=404)
 
-
+# Ver juegos
 def api_ver_juegos(request):
     # Recupera todos los juegos desde la base de datos
     juegos = Juego.objects.all()
-
     # Convierte los juegos en una lista de diccionarios
     juegos_list = []
     for juego in juegos:
@@ -44,38 +37,32 @@ def api_ver_juegos(request):
     # Devuelve la lista de juegos en formato JSON
     return JsonResponse({'juegos': juegos_list})
 
-
 # Implementar la lógica para filtrar y buscar skins
 def api_buscar_productos(request):
-    query = request.GET.get('q', '') 
+    query = request.GET.get('q', '')
     categoria = request.GET.get('categoria_id', '')  # Filtro por categoría
     juego = request.GET.get('juego_id', '')  # Filtro por juego
-  
     precio_min = request.GET.get('precio_min', 0)  # Rango de precios
     precio_max = request.GET.get('precio_max', 1000)  # Rango de precios predeterminado
-   
-    # Obtener todos los productos
+
     productos = Producto.objects.all().values('id', 'nombre', 'descripcion', 'categoria__arma', 'juego__nombre')
 
-    # Filtrar por nombre
     if query:
         productos = productos.filter(nombre__icontains=query)
 
-    # Filtrar por categoría si se proporciona
     if categoria:
         productos = productos.filter(categoria_id=categoria)
 
-    # Filtrar por juego si se proporciona
     if juego:
         productos = productos.filter(juego_id=juego)
-  
 
-    # Filtrar por rango de precios
     productos = productos.filter(precio__gte=precio_min, precio__lte=precio_max)
     return JsonResponse(list(productos), safe=False)
-    
+
 # Crear el endpoint para acceder a las categorías de videojuegos desde la base de datos
 def obtener_categorias(request):
     categorias = Categoria.objects.all().values('id', 'arma', 'ropa')
     return JsonResponse(list(categorias), safe=False)
+
+
 
