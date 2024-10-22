@@ -21,7 +21,7 @@ fuente: ROBOTO */
 }
 
 .cart-counter{
-    display: none;
+    display: block; /*none*/
     position: fixed;
     top: 89vh;
     right: 27px;
@@ -37,7 +37,7 @@ fuente: ROBOTO */
 
 /* MODAL */
 .modal-overlay{
-    display: none;
+    display: block; /*none*/
     background: linear-gradient(#000100, #363EFF 80%);
     background-repeat: no-repeat;
     height: 100%;
@@ -52,7 +52,7 @@ fuente: ROBOTO */
 }
 
 .modal-container{
-    display: none;
+    display: block; /*none*/
     background: linear-gradient(#000100, #363EFF);
     background-repeat: no-repeat;
     height: 100%;
@@ -74,7 +74,7 @@ fuente: ROBOTO */
 }
 
 .modal-container::-webkit-scrollbar{
-    display: none;
+    display: inline; /*none*/
 }
 
 .modal-close{
@@ -99,8 +99,24 @@ fuente: ROBOTO */
 #imagen1{
     justify-content: center; /* Centramos horizontalmente */
     align-items: center; /* Centramos verticalmente */
-    max-width: 100%; /* La imagen no será más grande que el ancho de la pantalla */
+    max-width: 100%; /*La imagen no será más grande que el ancho de la pantalla
     height: auto; /* Mantiene la proporción de la imagen */
     display: block; /* Eliminamos el comportamiento inline por defecto de las imágenes */
+    width: 150px;
+    height: auto;
 }
 /* MODAL BODY */
+
+.product-info h4{
+    text-align: center;
+}
+.quantity{
+    /* position: absolute; */
+    /* display: block; */
+    text-align: center;
+    margin: 5%;
+}
+.quantity-btn-decrese{
+    text-align: center;
+
+}
