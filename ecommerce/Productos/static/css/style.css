@@ -68,6 +68,7 @@ body{
   .product-price {
     font-size: 1.1em;
     margin: 10px 0;
+
   }
   
   .btn.btn-primary{
@@ -108,7 +109,7 @@ body{
   .card-text{
     display: flex;
     margin-left: 1.5rem;
-    margin-top: 18px;
+    margin-top: 40px;
     font-size: 18px;
   }
 
@@ -179,7 +180,7 @@ body{
 }
 
 .modal-content {
-  background-color: rgba(0, 0, 0, 0.8); /* Fondo gris con 80% de opacidad */
+  background-color: rgba(0, 0, 0, 0.95); /* Fondo gris con 80% de opacidad */
   color: white;
   border: 1px solid #363eff;
   
@@ -234,33 +235,5 @@ body{
 
 .btn .bi-cart-fill {
   font-size: 1.1rem; 
-}
-
-/* Estilo personalizado para el form-range */
-input[type="range"] {
-  height: 8px; /* Ajusta el grosor de la línea del filtro */
-  background: #363eff; /* Color de fondo de la línea */
-  border-radius: 5px;
-  outline: none;
-}
-
-input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 15px; /* Tamaño del círculo (thumb) */
-  height: 15px;
-  background: black; /* Color del círculo */
-  cursor: pointer;
-  border-radius: 50%;
-  border: 2px solid #363eff /* Borde del círculo */
-}
-
-input[type="range"]::-moz-range-thumb {
-  width: 15px; /* Tamaño del círculo */
-  height: 15px;
-  background: #004AAD; /* Color del círculo */
-  cursor: pointer;
-  border-radius: 50%;
-  border: 2px solid #FC6E22; /* Borde del círculo */
 }
 

@@ -52,9 +52,10 @@ class Juego(models.Model):
 class Producto(models.Model):
     juego = models.ForeignKey(Juego, on_delete=models.SET_NULL, null=True)
     categoria = models.ForeignKey(Categoria, on_delete=models.SET_NULL, null=True)
-    descripcion = models.CharField(max_length=45, null=True)
+    descripcion = models.CharField(max_length=250, null=True)
     stock = models.IntegerField(null=True)
     nombre = models.CharField(max_length=45, null=True)
+    precio = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
 
     def __str__(self):
         return self.nombre
