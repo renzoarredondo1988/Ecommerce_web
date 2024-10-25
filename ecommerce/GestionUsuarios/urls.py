@@ -3,5 +3,5 @@ from django.urls import path
 from GestionUsuarios import views
 urlpatterns = [
     path('registro/', views.registro_usuario, name='registro_usuario'),
-    path('login/', views.inicio_sesion, name='inicio_sesion'),
+    path('login/', views.login_user, name='inicio_sesion'),
 ]

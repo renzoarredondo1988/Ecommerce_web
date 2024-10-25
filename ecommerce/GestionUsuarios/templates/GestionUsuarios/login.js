@@ -1,5 +1,5 @@
 const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
-const LOGIN_URL = "{% url 'inicio-sesion' %}";
+const LOGIN_URL = "{% url 'inicio_sesion' %}";
 
 const formLogin = document.getElementById("formLogin")
 formLogin.addEventListener('submit', (event) => {
