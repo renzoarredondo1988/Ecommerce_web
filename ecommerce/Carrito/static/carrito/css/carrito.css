@@ -3,43 +3,12 @@ Color secundario: #000100
 Color acento: #FC6E22
 fuente: ROBOTO */
 
-.cart-btn{
-    position: fixed;
-    top: 90vh;
-    right: 40px;
-    background-color: #FC6E22;
-    padding: 10px;
-    border-radius: 50%;
-    height: 24px;
-    width: 24px;
-    transition: transform 0.2s ease-in-out;
-}
-
-.cart-btn:hover{
-    cursor: pointer;
-    opacity: 0.9;
-}
-
-.cart-counter{
-    display: block; /*none*/
-    position: fixed;
-    top: 89vh;
-    right: 27px;
-    color: #fff;
-    text-align: center;
-    background-color: #000100;
-    padding: 4px;
-    border-radius: 50%;
-    height: 17px;
-    width: 17px;
-    font-size: 15px;
-}
-
 /* MODAL */
 .modal-overlay{
     display: block; /*none*/
     background: linear-gradient(#000100, #363EFF 80%);
     background-repeat: no-repeat;
+    width: 100vw;
     height: 100%;
     margin: 0;
     background-attachment: fixed;
@@ -60,11 +29,11 @@ fuente: ROBOTO */
     background-attachment: fixed;
     box-shadow: 0px 3px 6px #00000029;
     padding: 40px;
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    max-width: 500px;
+    max-width: 700px;
     width: 100%;
     z-index: 1;
     max-height: 80vh;
@@ -80,43 +49,108 @@ fuente: ROBOTO */
 .modal-close{
     float: right;
     cursor: pointer;
+    font-size: 24px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
 }
 
 .modal-title{
-    font-size: 24px;
+    font-size: 30px;
     font-weight: bold;
     margin-bottom: 20px;
     text-align: center;
     color: #fff;
     text-shadow: 0 0 5px #363EFF, 0 0 5px #363EFF, 0 0 5px #363EFF, 0 0 5px #363EFF;
 }
+
 .modal-body{
     color: #fff;
     border: 2px solid #fff;
     box-shadow: inset 0 0 10px #363EFF, 0 0 10px #363EFF, 0 0 10px #363EFF;
 }
-/* FIN MODAL */
+
+.product {
+    display: flex; /* Flexbox para alinear horizontalmente */
+    align-items: center; /* Centrar verticalmente cada elemento */
+    gap: 35px; /* Espacio entre los elementos */
+    flex-wrap: nowrap; /* Previene que los elementos se vayan a otra línea */
+}
+
+.image-container img {
+    width: 100px;
+    height: auto;
+  }
+
 #imagen1{
     justify-content: center; /* Centramos horizontalmente */
     align-items: center; /* Centramos verticalmente */
     max-width: 100%; /*La imagen no será más grande que el ancho de la pantalla
     height: auto; /* Mantiene la proporción de la imagen */
-    display: block; /* Eliminamos el comportamiento inline por defecto de las imágenes */
+    display: inline; /* Eliminamos el comportamiento inline por defecto de las imágenes */
     width: 150px;
     height: auto;
+    justify-content: space-between;
 }
-/* MODAL BODY */
 
 .product-info h4{
+    display: inline;
     text-align: center;
+    flex: 1;
+    margin-right: 10px;
+    margin: 0;
 }
+
 .quantity{
-    /* position: absolute; */
-    /* display: block; */
+    display: inline;
     text-align: center;
     margin: 5%;
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
+
+.quantity-input {
+    display: inline;
+    font-size: 16px;
+}
+
 .quantity-btn-decrese{
+    display: inline;
     text-align: center;
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
 
 }
+
+.delete-product {
+    display: inline;
+    cursor: pointer;
+    font-size: 18px;
+    color: #FC6E22;
+}
+
+
+/* Price and delete icon styling */
+.modal-footer {
+    display: flex;
+    flex-direction: column; /* Coloca el contenido en una columna */
+    align-items: center; /* Centra horizontalmente los elementos */
+    gap: 10px; /* Espacio entre el total y el botón */
+    padding-top: 10px;
+}
+ 
+.total-price {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.btn-primary {
+    background-color: #363EFF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+/* FIN MODAL */
