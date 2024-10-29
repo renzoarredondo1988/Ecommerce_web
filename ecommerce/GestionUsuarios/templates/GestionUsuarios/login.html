@@ -15,7 +15,8 @@
             <h2>Bienvenido!</h2>
         </div>
         <div class="formLogin">
-            <form id="formLogin">
+            
+            <form action="{% url 'inicio_sesion' %}" method="post"id="formLogin">
                 {% csrf_token %} 
                 <div>
                     <label for="login_email">Correo electrónico:</label>
@@ -26,14 +27,17 @@
                     <input type="password" id="login_password" name="login_password" required>
                 </div>
                 <div>
-                    <button type="submit">Logearse</button>                    
+                    <button type="submit">Logearse</button> 
+                    <!--deberia agregar en vez de boton un formulario para redirigir a la vista de home,comentar en meet-->                   
                     <button type="button" id="closeButton">Cerrar</button>
                 </div>
+                <p id="alertLogin" style="color:red;">{% if error_message %}{{ error_message }}{% endif %}</p>
+
                 <!-- <p id="alertLogin"></p> -->
             </form>
         </div>
     </div>
-    <script src=""></script>
+    <!--script src=""></!--script>-->
 
 </body>
 </html>
