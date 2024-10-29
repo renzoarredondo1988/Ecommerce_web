@@ -8,8 +8,6 @@ def api_mostrar_catalogo(request):
     precio_max = request.GET.get('precio_max', 100000)
     categorias = request.GET.get('categoria', '') 
 
-    print(f"Parámetros recibidos: Precio min: {precio_min}, Precio max: {precio_max}, Categorías: {categorias}")
-
     productos = Producto.objects.filter(
         precio__gte=precio_min, 
         precio__lte=precio_max
@@ -25,7 +23,6 @@ def api_mostrar_catalogo(request):
             query |= Q(categoria__tipo='arma')
         productos = productos.filter(query)
 
-    print(f"Productos filtrados: {productos.count()}")
 
     return render(request, 'Productos/catalogo.html', {'productos': productos})
 
