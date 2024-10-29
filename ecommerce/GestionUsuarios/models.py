@@ -32,13 +32,16 @@ class Carrito(models.Model):
 
     def __str__(self):
         return f"Carrito {self.id} de {self.usuario}"
-
 class Categoria(models.Model):
-    arma = models.CharField(max_length=45, null=True)
-    ropa = models.CharField(max_length=45, null=True)
+    TIPO_CATEGORIA_CHOICES = [
+        ('arma', 'Arma'),
+        ('armadura', 'Armadura'),
+    ]
+    tipo = models.CharField(max_length=10, choices=TIPO_CATEGORIA_CHOICES, default='arma')
 
     def __str__(self):
-        return self.arma if self.arma else self.ropa
+        return self.tipo
+
 
 class Juego(models.Model):
     logo = models.BinaryField(null=True, blank=True)

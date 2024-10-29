@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" shrink-to-fit=no>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" shrink-to-fit="no">
     <title>CodeHive</title>
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="{% static 'assets/favicon.ico' %}">
@@ -17,19 +17,17 @@
 </head>
 
 <body>
-    <!-- Filtro lateral -->
-    <!-- Contenedor para los filtros -->
+
 <div class="container">
     <div class="row filter-container">
         <div class="col-md-3 col-sm-6 filter-item d-flex align-items-center">
-            <input type="checkbox" id="armadura">
+            <input type="checkbox" id="armadura" name="categoria" value="armadura" onchange="debouncedActualizarPrecios();">
             <label for="armadura">Armadura</label>
         </div>
         <div class="col-md-3 col-sm-6 filter-item d-flex align-items-center">
-            <input type="checkbox" id="arma">
+            <input type="checkbox" id="arma" name="categoria" value="arma" onchange="debouncedActualizarPrecios();">
             <label for="arma">Arma</label>
-        </div>
-
+        </div>        
         <div class="col-md-6 col-sm-12 filter-item d-flex align-items-center">
             <span id="precio-valor-min">$500</span> <!-- Valor inicial del precio mínimo -->
             <input type="range" class="form-range" id="filtro-precio" min="500" max="100000" step="500" oninput="debouncedActualizarPrecios();">
@@ -41,7 +39,6 @@
     </div>
 </div>
 
-<!-- Contenedor separado para los productos -->
 <div id="productos-container" class="container py-5">
     <div class="row g-4">
         {% for producto in productos %}
@@ -59,127 +56,137 @@
     </div>
 </div>
 
+<div class="modal fade" id="productoModal" tabindex="-1" aria-labelledby="productoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="productoModalLabel">Detalles de Producto</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <img id="modal-imagen" src="{% static 'img/producto.jpg' %}" alt="Imagen del producto"
+                             class="img-fluid">
+                    </div>
+                    <div class="col-md-6">
+                        <p><strong>Nombre:</strong> <span id="modal-nombre"></span></p>
+                        <p><strong>Descripción:</strong> <span id="modal-descripcion"></span></p>
+                        <p><strong>Stock:</strong> <span id="modal-stock"></span></p>
 
-    <!-- Modal para mostrar el detalle del producto -->
-    <div class="modal fade" id="productoModal" tabindex="-1" aria-labelledby="productoModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="productoModalLabel">Detalles de Skin</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <img id="modal-imagen" src="{% static 'img/producto.jpg' %}" alt="Imagen del producto"
-                                class="img-fluid">
-                        </div>
-                        <div class="col-md-6">
-                            <p><strong>Nombre:</strong> <span id="modal-nombre"></span></p>
-                            <p><strong>Descripción:</strong> <span id="modal-descripcion"></span></p>
-                            <p><strong>Stock:</strong> <span id="modal-stock"></span></p>
-                            <p><strong>Categoría:</strong> <span id="modal-categoria"></span></p>
-                            <p><strong>Juego:</strong> <span id="modal-juego"></span></p>
-                        </div>
+                        <!-- Mostrar solo si es arma o armadura -->
+                        <p><strong>Categoría:</strong> <span id="modal-categoria"></span></p>
+
+                        <p><strong>Juego:</strong> <span id="modal-juego"></span></p>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-secondary">
-                        <i class="bi bi-cart-plus"></i>
-                    </button>
-                </div>
-                
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-secondary">
+                    <i class="bi bi-cart-plus"></i>
+                </button>
             </div>
         </div>
     </div>
+</div>
 
-    <!-- JavaScript para manejar el modal y el filtro de precios -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            activarEventosModal(); // Activamos los eventos del modal al cargar la página
-        });
-
-        // Función para actualizar los valores de precio y enviar automáticamente el formulario
-        function actualizarPrecios() {
-    let rango = document.getElementById('filtro-precio');
-    let valorMin = document.getElementById('precio_min');
-    let valorMax = document.getElementById('precio_max');
-    let minDisplay = document.getElementById('precio-valor-min');
-    let maxDisplay = document.getElementById('precio-valor-max');
-
-    // Actualizar los valores mostrados en el frontend
-    minDisplay.innerText = `$${rango.min}`;
-    maxDisplay.innerText = `$${rango.value}`;
-
-    // Actualizar los valores de los inputs ocultos
-    valorMin.value = rango.min;
-    valorMax.value = rango.value;
-
-    const params = new URLSearchParams({
-        precio_min: rango.min,
-        precio_max: rango.value
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        activarEventosModal(); 
     });
 
-    fetch(`/productos/api/catalogo/?${params.toString()}`)
-    .then(response => response.text())
-    .then(html => {
-        // Asegúrate de que solo se actualice el contenedor de productos, no el de filtros
-        const newProducts = document.createElement('div');
-        newProducts.innerHTML = html;
+    // Definir la función debounce
+    function debounce(func, delay) {
+        let debounceTimer;
+        return function() {
+            const context = this;
+            const args = arguments;
+            clearTimeout(debounceTimer);
+            debounceTimer = setTimeout(() => func.apply(context, args), delay);
+        };
+    }
 
-        // Reemplaza solo los productos
-        const productsContainer = document.getElementById('productos-container');
-        productsContainer.innerHTML = newProducts.querySelector('#productos-container').innerHTML;
+    function actualizarPrecios() {
+        let rango = document.getElementById('filtro-precio');
+        let valorMin = document.getElementById('precio_min');
+        let valorMax = document.getElementById('precio_max');
+        let minDisplay = document.getElementById('precio-valor-min');
+        let maxDisplay = document.getElementById('precio-valor-max');
 
-        // Reactivar los eventos para los productos
-        activarEventosModal();
-    })
-    .catch(error => console.error('Error:', error));
+        // Capturar el filtro seleccionado
+        let filtroCategoria = [];
+        const armaduraCheckbox = document.getElementById('armadura');
+        const armaCheckbox = document.getElementById('arma');
 
+        // Verificar el estado de los checkboxes
+        if (armaduraCheckbox.checked) {
+            filtroCategoria.push(armaduraCheckbox.value);
+        }
+        if (armaCheckbox.checked) {
+            filtroCategoria.push(armaCheckbox.value);
+        }
+
+        // Actualizar los valores mostrados en el frontend
+        minDisplay.innerText = `$${rango.min}`;
+        maxDisplay.innerText = `$${rango.value}`;
+
+        // Actualizar los valores de los inputs ocultos
+        valorMin.value = rango.min;
+        valorMax.value = rango.value;
+
+        // Construir los parámetros de consulta
+        const params = new URLSearchParams({
+            precio_min: rango.min,
+            precio_max: rango.value,
+            categoria: filtroCategoria.join(',')  
+        });
+
+        fetch(`/productos/api/catalogo/?${params.toString()}`)
+        .then(response => response.text())
+        .then(html => {
+            const newProducts = document.createElement('div');
+            newProducts.innerHTML = html;
+
+            const productsContainer = document.getElementById('productos-container');
+            productsContainer.innerHTML = newProducts.querySelector('#productos-container').innerHTML;
+
+            activarEventosModal();
+        })
+        .catch(error => console.error('Error:', error));
+    }
+
+    const debouncedActualizarPrecios = debounce(actualizarPrecios, 300); 
+
+    function activarEventosModal() {
+    document.querySelectorAll('.btn-ver-producto').forEach(button => {
+        button.addEventListener('click', function () {
+            const productoId = this.getAttribute('data-id');
+
+            fetch(`/productos/api/producto/${productoId}/`)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('modal-nombre').innerText = data.nombre;
+                    document.getElementById('modal-descripcion').innerText = data.descripcion;
+                    document.getElementById('modal-stock').innerText = data.stock;
+
+                    document.getElementById('modal-categoria').innerText = data.categoria__tipo || "Sin categoría";
+
+                    document.getElementById('modal-juego').innerText = data.juego__nombre;
+
+                    const modal = new bootstrap.Modal(document.getElementById('productoModal'));
+                    modal.show();
+                })
+                .catch(error => console.error('Error:', error));
+        });
+    });
 }
 
-        function debounce(func, delay) {
-            let debounceTimer;
-            return function() {
-                const context = this;
-                const args = arguments;
-                clearTimeout(debounceTimer);
-                debounceTimer = setTimeout(() => func.apply(context, args), delay);
-            };
-        }
+</script>
 
-        // Usar debounce en la función de actualizar precios
-        const debouncedActualizarPrecios = debounce(actualizarPrecios, 300); // 300 ms de espera
-
-        // Función para activar los eventos del modal en los botones
-        function activarEventosModal() {
-            document.querySelectorAll('.btn-ver-producto').forEach(button => {
-                button.addEventListener('click', function () {
-                    const productoId = this.getAttribute('data-id');
-
-                    fetch(`/productos/api/producto/${productoId}/`)
-                        .then(response => response.json())
-                        .then(data => {
-                            document.getElementById('modal-nombre').innerText = data.nombre;
-                            document.getElementById('modal-descripcion').innerText = data.descripcion;
-                            document.getElementById('modal-stock').innerText = data.stock;
-                            document.getElementById('modal-categoria').innerText = data['categoria__arma'] || data['categoria__ropa'];
-                            document.getElementById('modal-juego').innerText = data['juego__nombre'];
-
-                            const modal = new bootstrap.Modal(document.getElementById('productoModal'));
-                            modal.show();
-                        })
-                        .catch(error => console.error('Error:', error));
-                });
-            });
-        }
-
-    </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
-    </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+</script>
 
 </body>
 
