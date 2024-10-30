@@ -33,13 +33,16 @@ class Carrito(models.Model):
 
     def __str__(self):
         return f"Carrito {self.id} de {self.usuario}"
-
 class Categoria(models.Model):
-    arma = models.CharField(max_length=45, null=True)
-    ropa = models.CharField(max_length=45, null=True)
+    TIPO_CATEGORIA_CHOICES = [
+        ('arma', 'Arma'),
+        ('armadura', 'Armadura'),
+    ]
+    tipo = models.CharField(max_length=10, choices=TIPO_CATEGORIA_CHOICES, default='arma')
 
     def __str__(self):
-        return self.arma if self.arma else self.ropa
+        return self.tipo
+
 
 class Juego(models.Model):
     logo = models.BinaryField(null=True, blank=True)
@@ -53,9 +56,10 @@ class Juego(models.Model):
 class Producto(models.Model):
     juego = models.ForeignKey(Juego, on_delete=models.SET_NULL, null=True)
     categoria = models.ForeignKey(Categoria, on_delete=models.SET_NULL, null=True)
-    descripcion = models.CharField(max_length=45, null=True)
+    descripcion = models.CharField(max_length=250, null=True)
     stock = models.IntegerField(null=True)
     nombre = models.CharField(max_length=45, null=True)
+    precio = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
 
     def __str__(self):
         return self.nombre
