@@ -82,3 +82,4 @@ def api_buscar_productos(request):
 def obtener_categorias(request):
     categorias = Categoria.objects.all().values('id', 'arma', 'armadura')
     return JsonResponse(list(categorias), safe=False)
+ #comentario

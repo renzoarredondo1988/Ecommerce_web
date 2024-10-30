@@ -9,3 +9,4 @@ urlpatterns = [
     path('api/juegos/', views.api_ver_juegos, name='api_ver_juegos')
     
 ]
+ #comentario
