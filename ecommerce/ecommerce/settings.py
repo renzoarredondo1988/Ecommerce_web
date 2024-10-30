@@ -126,11 +126,16 @@ STATIC_URL = '/static/' #la primer barra hace referencia a una URL absoluta (fue
 #le estás diciendo a Django que esta es la ruta base desde el dominio raíz.
 MEDIA_URL = '/media/' #Idem anterior, pero aqui hace ref. a archivos del tipo imagenes, videos, etc
 
-MEDIA_ROOT = BASE_DIR / 'media' #aqui indica donde se guardaran los archivos de las url "media"
+MEDIA_ROOT = BASE_DIR / 'media'
 
-STATICFILES_DIRS = [
-    BASE_DIR / 'static',  # Asegúrate de que esta carpeta exista
-]
+"""STATICFILES_DIRS = [ #agregamos las rutas del proyecto y de la aplicacion
+    BASE_DIR / 'static',
+    BASE_DIR / 'GestionUsuarios/static',
+    BASE_DIR / 'InterfazGeneral/static',
+    BASE_DIR / 'PagosyPedidos/static',
+    BASE_DIR / 'Productos/static',
+    BASE_DIR / 'Carrito/static',
+]"""
 
 
 # Default primary key field type
