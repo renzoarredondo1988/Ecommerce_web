@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -122,8 +122,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 
-STATIC_URL = 'static/'
-MEDIA_URL = '/media/'
+STATIC_URL = '/static/' #la primer barra hace referencia a una URL absoluta (fuera de todo), para archivos estaticos
+#le estás diciendo a Django que esta es la ruta base desde el dominio raíz.
+MEDIA_URL = '/media/' #Idem anterior, pero aqui hace ref. a archivos del tipo imagenes, videos, etc
 
 MEDIA_ROOT = BASE_DIR / 'media'
 
