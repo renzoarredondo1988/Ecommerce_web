@@ -1,0 +1,14 @@
+.btn {
+    display: inline-block; /* Hace que el enlace se comporte como un bloque */
+    padding: 10px 20px; /* Espaciado interno */
+    background-color: red; /* Color de fondo */
+    color: white; /* Color del texto */
+    text-decoration: none; /* Sin subrayado */
+    border-radius: 5px; /* Bordes redondeados */
+    border: none; /* Sin borde */
+    cursor: pointer; /* Cambia el cursor al pasar el mouse */
+}
+
+.btn:hover {
+    background-color: darkred; /* Color al pasar el mouse */
+}

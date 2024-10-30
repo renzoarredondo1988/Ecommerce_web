@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'Carrito',
     'InterfazGeneral',
     'PagosyPedidos',
+    'pagos',
 
 ]
 
@@ -122,18 +123,33 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [ #agregamos las rutas del proyecto y de la aplicacion
+STATIC_URL = '/static/' #la primer barra hace referencia a una URL absoluta (fuera de todo), para archivos estaticos
+#le estás diciendo a Django que esta es la ruta base desde el dominio raíz.
+MEDIA_URL = '/media/' #Idem anterior, pero aqui hace ref. a archivos del tipo imagenes, videos, etc
+
+# MEDIA_ROOT = BASE_DIR / 'media'
+# STATIC_URL = '/static/'
+# STATICFILES_DIRS = [
+#     BASE_DIR / 'static',
+# ]
+
+
+"""STATICFILES_DIRS = [ #agregamos las rutas del proyecto y de la aplicacion
     BASE_DIR / 'static',
     BASE_DIR / 'GestionUsuarios/static',
     BASE_DIR / 'InterfazGeneral/static',
     BASE_DIR / 'PagosyPedidos/static',
     BASE_DIR / 'Productos/static',
     BASE_DIR / 'Carrito/static',
-]
+]"""
 
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+#INTEGRACION DE MERCADOPAGO
+MERCADO_PAGO_ACCESS_TOKEN = 'APP_USR-5285721843882809-101119-da1cfb4649ba02083771e8f3bf6a83ad-238786920'
+MERCADO_PAGO_PUBLIC_KEY = 'APP_USR-3a6866da-6e61-4cc3-9215-4b3e6d9fec70'

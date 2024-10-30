@@ -1,0 +1,97 @@
+/* Estilos generales */
+.card{
+  background-color: #000100;
+  color: white;
+  border: 3px solid white;
+  padding: 10px;
+  text-align: center;
+  border-radius: 8px; /* Bordes redondeados */
+  overflow: hidden; /* Asegura que el contenido no se desborde */
+  transition: transform 0.3s; /* Transición suave */
+  margin-right: 30px; /*Distancia entre card, una al lado de la otras*/
+  position: relative;
+  bottom: 0;
+  right: 0;
+  width: 240px;
+  height: 320px;
+}
+
+.container.py-5{
+  width: 1209px; /* Ancho específico */
+  height: 320px; /* Alto específico */
+  
+  margin-bottom: 50px; /*Distancia, una abajo de la otras*/
+  margin-left: 80px;
+
+}
+.card:hover {
+  transform: scale(1.05); /* Efecto de zoom al pasar el mouse */
+}
+
+.card-img-top {
+  width: 100%;
+  height: auto; /* Mantiene la relación de aspecto de la imagen */
+}
+
+.card-body {
+  padding: 10px;
+  display: flex;
+  flex-direction: column; /* Alinea el contenido verticalmente */
+}
+
+.product-name {
+  font-size: 1.2em;
+  margin: 10px 0;
+}
+
+.product-price {
+  font-size: 1.1em;
+  margin: 10px 0;
+}
+
+.btn.btn-primary{
+  background-color: #007bff; /* Color de fondo del botón */
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 15px; /* Bordes redondeados */
+  text-align: center;
+  display: block;
+  width: 75px;
+  height:29px;
+  line-height: 29px;
+  margin: 70px  30px; /*Margen superior para bajarlo un poco más, izquierda*/
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+  border: 1px solid #363eff;
+  position: absolute;
+  right: 0;
+}
+
+.btn.btn-primary::before { /* Texto VER */
+  content: "VER"; 
+  position: absolute;
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+}
+
+.card-img-top{ /*Imagen*/
+  width: 180px;
+  height: 180px;
+  object-fit: contain;
+  margin: 0 auto;
+  border: 1px solid #363eff;
+  border-radius: 5px;
+  display: flex;
+  align-content: center;
+}
+
+.card-text{
+  display: flex;
+  margin-left: 1.5rem;
+  margin-top: 18px;
+  font-size: 18px;
+}

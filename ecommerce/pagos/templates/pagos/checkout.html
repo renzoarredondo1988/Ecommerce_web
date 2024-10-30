@@ -1,0 +1,21 @@
+<script src="https://sdk.mercadopago.com/js/v2"></script>
+
+<div>
+    <button id="checkout-btn">Pagar</button>
+</div>
+
+<script>
+    const mp = new MercadoPago('{{ public_key }}', {
+        locale: 'es-AR'
+    });
+
+    mp.checkout({
+        preference: {
+            id: '{{ preference_id }}'
+        },
+        render: {
+            container: '#checkout-btn', // ID del elemento donde se creará el botón
+            label: 'Pagar con MercadoPago', // Etiqueta del botón
+        }
+    });
+</script>
