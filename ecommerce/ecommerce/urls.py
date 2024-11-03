@@ -20,6 +20,9 @@ from django.http import HttpResponse #importo el httresponse, para agregar una f
 def home(request):
     return HttpResponse("Bienvenido a la página principal")
 
+from django.conf import settings
+from django.conf.urls.static import static
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('usuarios/', include('GestionUsuarios.urls')),#url de la aplicacion gestion usuarios
@@ -32,3 +35,6 @@ urlpatterns = [
     path('', home, name='home'),  # Página principal
 
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Producto 
+from GestionUsuarios.models import Producto 
 #creo funciones con pass para configurar urls y settings
 # views.py en tu aplicación
 
@@ -19,4 +19,4 @@ def buscar(request):
     else:
         # Muestra todos los productos si no hay consulta
         resultados = Producto.objects.all()
-    return render(request, 'resultado.html', {'results': results, 'query': query})
+   # return render(request, 'resultado.html', {'results': results, 'query': query})

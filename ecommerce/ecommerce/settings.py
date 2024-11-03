@@ -144,6 +144,12 @@ MEDIA_URL = '/media/' #Idem anterior, pero aqui hace ref. a archivos del tipo im
 ]"""
 
 
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+MEDIA_URL = '/media/'  # URL a través de la cual se accederán los archivos de medios
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # Ruta física donde se almacenarán los archivos
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
