@@ -5,11 +5,11 @@ from GestionUsuarios.models import Producto
 
 def home(request):
     # procesar la lógica necesaria antes de renderizar el template
-    return render(request, 'nombre_template_home.html')  # Renderiza el template para la página principal
+    return render(request, 'InterfazGeneral/index.html')  # Renderiza el template para la página principal
 
 def about(request):
     # procesar la lógica necesaria antes de renderizar el template
-    return render(request, 'nombre_template_about.html')  # Renderiza el template para la página Acerca de...
+    return render(request, 'InterfazGeneral/nombre_template_about.html')  # Renderiza el template para la página Acerca de...
 
 def buscar(request):
     query = request.GET.get('q', '')

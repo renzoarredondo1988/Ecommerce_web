@@ -17,8 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include #necesario para traer las url de las apps
 from django.http import HttpResponse #importo el httresponse, para agregar una funcion y crear una url momentanea
-def home(request):
-    return HttpResponse("Bienvenido a la página principal")
+"""def home(request):
+    return HttpResponse("Bienvenido a la página principal")"""
 
 from django.conf import settings
 from django.conf.urls.static import static
@@ -26,13 +26,13 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('usuarios/', include('GestionUsuarios.urls')),#url de la aplicacion gestion usuarios
-    path('interfaz/', include('InterfazGeneral.urls')), #url interfaz
+    path('', include('InterfazGeneral.urls')), #url interfaz
     path('carrito/', include('Carrito.urls')),  # Incluir las URLs del carrito
     path('pagos-y-pedidos/', include('PagosyPedidos.urls')),# Incluir las URLs de los pedidos 
     path('productos/', include('Productos.urls')),  # URL para la aplicación Productos
     path('pagos/', include(('pagos.urls', 'pagos'), namespace='pagos')),  # URL para la aplicación Productos
 
-    path('', home, name='home'),  # Página principal
+   
 
 ]
 
