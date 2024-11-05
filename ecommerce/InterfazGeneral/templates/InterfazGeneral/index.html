@@ -1,1 +1,122 @@
-djaklsdjaslkdjaslkdjaskldjxl
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda de Productos - CodeHive</title>
+    <style>
+        /* Estilos básicos para la estructura */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #0A0A23;
+            color: white;
+        }
+        header, footer {
+            background-color: #1A1A3D;
+            padding: 1em;
+            text-align: center;
+        }
+        .banner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #111;
+            padding: 2em;
+        }
+        .banner img {
+            width: 50%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .banner-text {
+            font-size: 1.5em;
+            text-align: left;
+            margin-left: 1em;
+        }
+        .product-grid {
+            display: flex;
+            justify-content: center;
+            gap: 1em;
+            padding: 2em;
+            flex-wrap: wrap;
+        }
+        .card {
+            background-color: #222;
+            width: 180px;
+            padding: 1em;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .card img {
+            width: 100%;
+            border-radius: 5px;
+        }
+        .card h3 {
+            margin: 0.5em 0;
+            font-size: 1em;
+        }
+        .card .price {
+            color: #ccc;
+        }
+        .card .btn {
+            background-color: #007bff;
+            color: white;
+            padding: 0.5em 1em;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 0.5em;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>CodeHive</h1>
+    </header>
+
+    <section class="banner">
+        <div class="banner-text">
+            <p>Lorem ipsum</p>
+            <h2>dolor sit amet</h2>
+            <p>consectetur adipiscing elit!!</p>
+        </div>
+        <img src="path/to/your/banner-image.jpg" alt="Imagen del Banner">
+    </section>
+
+    <section class="product-grid">
+        <div class="card">
+            <img src="path/to/your/product-image1.jpg" alt="Producto 1">
+            <h3>Nombre producto</h3>
+            <p class="price">$--.--</p>
+            <a href="#" class="btn">VER</a>
+        </div>
+        <div class="card">
+            <img src="path/to/your/product-image2.jpg" alt="Producto 2">
+            <h3>Nombre producto</h3>
+            <p class="price">$--.--</p>
+            <a href="#" class="btn">VER</a>
+        </div>
+        <div class="card">
+            <img src="path/to/your/product-image3.jpg" alt="Producto 3">
+            <h3>Nombre producto</h3>
+            <p class="price">$--.--</p>
+            <a href="#" class="btn">VER</a>
+        </div>
+        <div class="card">
+            <img src="path/to/your/product-image4.jpg" alt="Producto 4">
+            <h3>Nombre producto</h3>
+            <p class="price">$--.--</p>
+            <a href="#" class="btn">VER</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 CodeHive</p>
+    </footer>
+
+</body>
+</html>
