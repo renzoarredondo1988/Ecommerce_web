@@ -1,6 +1,6 @@
 import json  # Importamos el módulo json para trabajar con datos en formato JSON
 from django.http import JsonResponse  # Importamos JsonResponse para enviar respuestas JSON
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from .models import Validacion  # Importamos el modelo Validacion
 from django.contrib.auth.hashers import make_password,check_password   # Importamos para hash de contraseñas
 from django.views.decorators.csrf import csrf_exempt
@@ -52,6 +52,10 @@ def login_user(request):
         try:
             usuario = Validacion.objects.get(correo=email)
             if check_password(password, usuario.contraseña):  # Verificar la contraseña
+                usuario_objeto = usuario.usuario
+                request.session['user_id'] = usuario_objeto.id  # Guardamos el ID del usuario en la sesión
+                request.session['user_email'] = usuario.correo  # Guardamos el correo de Validacion
+                request.session['username'] = usuario_objeto.nombre  # Guardamos el nombre del usuario
                 return JsonResponse({'success': True, 'message': 'Inicio de sesión exitoso'}, status=200)
             else:
                 return render(request, 'GestionUsuarios/login.html', {
@@ -67,3 +71,12 @@ def login_user(request):
 #comentar en la meet
 #cerrar
     return render(request, 'GestionUsuarios/login.html')
+
+
+
+def logout_user(request):
+    if request.method == 'POST':
+        request.session.flush()  # Elimina todos los datos de la sesión
+        return JsonResponse({'success': True, 'message': 'Sesión cerrada correctamente'}, status=200)
+
+    return redirect('')  # Redirige a la página de inicio
