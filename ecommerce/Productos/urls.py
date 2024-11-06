@@ -1,6 +1,9 @@
 from django.urls import path
 from . import views
 
+
+app_name = 'producto' #Se crea namespace para poder acceder a estas URLs desde templates que no le pertenecen a la app
+
 urlpatterns = [
     path('api/catalogo/', views.api_mostrar_catalogo, name='api_mostrar_catalogo'),
     path('api/producto/<int:producto_id>/', views.api_detalle_producto, name='api_detalle_producto'),

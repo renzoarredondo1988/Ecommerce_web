@@ -32,13 +32,14 @@
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a class="nav-link {% if request.resolver_match.url_name == 'productos' %}active{% endif %}" 
-                            href=>Productos</a>
+                            href="{% url 'producto:api_mostrar_catalogo' %}">Productos</a>
                         </li>
                         <li class="nav-item">
                             <!--Botón carrito-->
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Usuario</a>
+                            <a class="nav-link" href="#">Ingresar</a>
+                            <a class="nav-link" href="#">Registrarse</a>
                         </li>
                     </ul>
                 </div>
