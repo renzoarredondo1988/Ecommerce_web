@@ -22,7 +22,7 @@
                 </button>
     
                 <!-- Barra de búsqueda centrada -->
-                <form class="d-flex justify-content-center mx-auto search-form" method="GET" action="{% url 'buscar' %}">
+                <form class="d-flex justify-content-center mx-auto search-form" method="GET" >
                     <input class="form-control me-2 inputbuscar" type="search" placeholder="Buscar en CodeHive" aria-label="Search">
                     <button class="btn btnbuscar" type="submit">Buscar</button>
                 </form>
@@ -32,7 +32,7 @@
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a class="nav-link {% if request.resolver_match.url_name == 'productos' %}active{% endif %}" 
-                            href="{% url 'productos' %}">Productos</a>
+                            href=>Productos</a>
                         </li>
                         <li class="nav-item">
                             <!--Botón carrito-->
@@ -52,21 +52,7 @@
             </div>
             <div>
                 <!--Sección dinámica-->
-                <!--
-                Hablar con las chicas para ver como implementar esto.
-                {% extends 'base.html' %}
-
-                {% block content %}
-                    <h1>Resultados de búsqueda para "{{ query }}"</h1>
-                    <ul>
-                        {% for producto in results %}
-                            <li>{{ producto.nombre }} - {{ producto.descripcion }}</li>
-                        {% empty %}
-                            <p>No se encontraron resultados.</p>
-                        {% endfor %}
-                    </ul>
-                {% endblock %}
-                -->
+              
                 {% block content %}
             
                 {% endblock %}

@@ -1,78 +1,9 @@
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tienda de Productos - CodeHive</title>
-    <style>
-        /* Estilos básicos para la estructura */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background-color: #0A0A23;
-            color: white;
-        }
-        header, footer {
-            background-color: #1A1A3D;
-            padding: 1em;
-            text-align: center;
-        }
-        .banner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #111;
-            padding: 2em;
-        }
-        .banner img {
-            width: 50%;
-            height: auto;
-            border-radius: 10px;
-        }
-        .banner-text {
-            font-size: 1.5em;
-            text-align: left;
-            margin-left: 1em;
-        }
-        .product-grid {
-            display: flex;
-            justify-content: center;
-            gap: 1em;
-            padding: 2em;
-            flex-wrap: wrap;
-        }
-        .card {
-            background-color: #222;
-            width: 180px;
-            padding: 1em;
-            border-radius: 8px;
-            text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-        .card img {
-            width: 100%;
-            border-radius: 5px;
-        }
-        .card h3 {
-            margin: 0.5em 0;
-            font-size: 1em;
-        }
-        .card .price {
-            color: #ccc;
-        }
-        .card .btn {
-            background-color: #007bff;
-            color: white;
-            padding: 0.5em 1em;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            display: inline-block;
-            margin-top: 0.5em;
-        }
-    </style>
-</head>
-<body>
+
+{% extends "InterfazGeneral/base.html" %}
+
+{% load static %}
+
+{% block content %}
 
     <header>
         <h1>CodeHive</h1>
@@ -118,5 +49,5 @@
         <p>&copy; 2024 CodeHive</p>
     </footer>
 
-</body>
-</html>
+
+{% endblock %}
