@@ -28,15 +28,29 @@ def api_mostrar_catalogo(request):
 
 
 
-def api_detalle_producto(request, producto_id):
-    producto = Producto.objects.filter(id=producto_id).values(
-        'id', 'nombre', 'descripcion', 'stock', 'categoria__tipo', 'juego__nombre'
-    ).first()
+#def api_detalle_producto(request, producto_id):
+  #  producto = Producto.objects.filter(id=producto_id).values(
+    #    'id', 'nombre', 'descripcion', 'stock', 'categoria__tipo', 'juego__nombre'
+   # ).first()
 
-    if producto:
-        return JsonResponse(producto, safe=False)
-    else:
-        return JsonResponse({'error': 'Producto no encontrado'}, status=404)
+    #if producto:
+    #    return JsonResponse(producto, safe=False)
+  #  else:
+    #    return JsonResponse({'error': 'Producto no encontrado'}, status=404)
+
+
+def api_detalle_producto(request, producto_id):
+    # Obtén el objeto Producto completo, no solo un diccionario
+    producto = Producto.objects.select_related('categoria', 'juego').filter(id=producto_id).first()
+
+    # Verifica si el producto existe
+    if not producto:
+        return render(request, 'Productos/producto_no_encontrado.html')
+
+    # Devuelve el producto a la plantilla
+    return render(request, 'Productos/ver_producto.html', {'producto': producto})
+    
+    
 
 
 

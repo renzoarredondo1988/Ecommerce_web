@@ -48,7 +48,7 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ producto.nombre }}</h5>
                     <p class="card-text">${{ producto.precio }}</p> 
-                    <button class="btn btn-primary btn-ver-producto" data-id="{{ producto.id }}">VER</button>
+                    <a href="{% url 'producto:api_detalle_producto' producto.id %}" class="btn btn-primary">VER</a>
                 </div>
             </div>
         </div>

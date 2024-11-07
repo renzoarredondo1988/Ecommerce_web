@@ -1,0 +1,8 @@
+<h1>{{ producto.nombre }}</h1>
+<p>{{ producto.descripcion }}</p>
+<p>Stock: {{ producto.stock }}</p>
+<p>Categoría: {{ producto.categoria__tipo }}</p>
+<p>Juego: {{ producto.juego__nombre }}</p>
+<img src="{{ producto.imagen.url }}" alt="Imagen de {{ producto.nombre }}" class="img-fluid">
+<p>{{producto.precio}} $</p>
+<button><a href="{% url 'producto:api_mostrar_catalogo' %}">Volver al catalogo</a></button>
