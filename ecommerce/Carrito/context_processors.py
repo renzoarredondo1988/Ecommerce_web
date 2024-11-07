@@ -21,7 +21,7 @@ def auth_and_cart_info(request):
                 total += float(item['precio']) * item.get('cantidad', 1)  # Multiplicamos por cantidad si existe
 
     return {
-        'authenticated': authenticated,
+        'authenticated': authenticated, #{% if request.session.authenticated %}
         'user_id': user_id,
         'user_email': user_email,
         'user_name': user_name,

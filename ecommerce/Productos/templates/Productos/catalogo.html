@@ -44,7 +44,7 @@
         {% for producto in productos %}
         <div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-4">
             <div class="card h-100">
-                <img src="{% static 'img/producto.jpg' %}" class="card-img-top" alt="{{ producto.nombre }}">
+                <img src="{{producto.imagen.url}}" class="card-img-top" alt="{{ producto.nombre }}">
                 <div class="card-body">
                     <h5 class="card-title">{{ producto.nombre }}</h5>
                     <p class="card-text">${{ producto.precio }}</p> 
@@ -66,7 +66,7 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-md-6">
-                        <img id="modal-imagen" src="{% static 'img/producto.jpg' %}" alt="Imagen del producto"
+                        <img id="modal-imagen" src="{{producto.imagen.url}}" alt="Imagen del producto"
                              class="img-fluid">
                     </div>
                     <div class="col-md-6">

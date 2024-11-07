@@ -52,10 +52,10 @@ def login_user(request):
         try:
             usuario = Validacion.objects.get(correo=email) #instancia de validacion
             if check_password(password, usuario.contraseña):  # Verificar la contraseña
-                usuario_objeto = usuario.usuario #
-                request.session['user_id'] = usuario_objeto.id  # Guardamos el ID del usuario en la sesión
-                request.session['user_email'] = usuario.correo  # Guardamos el correo de Validacion
-                request.session['username'] = usuario_objeto.nombre  # Guardamos el nombre del usuario
+              #  usuario_objeto = usuario.usuario #
+              #  request.session['user_id'] = usuario_objeto.id  # Guardamos el ID del usuario en la sesión
+              #  request.session['user_email'] = usuario.correo  # Guardamos el correo de Validacion
+               # request.session['username'] = usuario_objeto.nombre  # Guardamos el nombre del usuario
                 return JsonResponse({'success': True, 'message': 'Inicio de sesión exitoso'}, status=200)
             else:
                 return render(request, 'GestionUsuarios/login.html', {

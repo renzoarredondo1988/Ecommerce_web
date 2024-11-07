@@ -1,13 +1,15 @@
-<!-- archivo vacio, es necesario configurar la ruta del header y footer  global -->
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CodeHive Header</title>
-</head>
 
-<body>
+{% extends "InterfazGeneral/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+
+
+
+<!-- archivo vacio, es necesario configurar la ruta del header y footer  global -->
+
     <div class="logo">
         <img src="" alt="">
     </div>
@@ -16,7 +18,7 @@
             <h2>Regístrate</h2>
         </div>
         <div class="formRegister">
-            <form action="{% url 'registro_usuario' %}" method="post" id="formRegister">{% csrf_token %} 
+            <form action="{% url 'gestion_usuario:registro_usuario' %}" method="post" id="formRegister">{% csrf_token %} 
                 <div>
                     <label for="register_name">Nombre:</label>
                     <input type="text" id="register_name" name="register_name" required>
@@ -52,7 +54,7 @@
                 {% endif %}
                 <div>
                     <button type="submit">Registrarse</button>                    
-                    <button type="button" id="closeButton">Cerrar</button>
+                    <a href="{% url 'interfaz_general:home' %}"><button type="button" id="closeButton">Cerrar</button></a>
                 </div>
                 <!-- <p id="alertRegister"></p> -->
             </form>
@@ -60,5 +62,5 @@
     </div>
     
     <!--<script src="../GestionUsuarios/registro.js"></script>-->
-</body>
-</html>
+
+    {% endblock %}

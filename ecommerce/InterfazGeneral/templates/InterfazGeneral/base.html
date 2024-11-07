@@ -14,7 +14,7 @@
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
                 <!-- Logo -->
-                <a class="navbar-brand" href="#">Code<span>Hive</span></a>
+                <a class="navbar-brand" href="{% url 'interfaz_general:home' %}">Code<span>Hive</span></a>
     
                 <!-- Botón de colapsar para pantallas pequeñas -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,8 +38,11 @@
                             <!--Botón carrito-->
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Usuario</a>
+                            <a class="nav-link" href="{% url 'gestion_usuario:inicio_sesion' %}">Log In</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'gestion_usuario:registro_usuario' %}">Sign In</a>
+                        </li>  
                     </ul>
                 </div>
             </div>
@@ -59,8 +62,21 @@
             </div>
         </div>
     </main>
-    <footer>
 
+    
+    <footer>
+        <div class="container">
+            <p class="m-0 mbt">
+                <a href="https://github.com/AndresPampa" class="link">Andrés Álvarez</a> ·
+                <a href="https://github.com/renzoarredondo1988" class="link">Renzo Arredondo</a> ·
+                <a href="https://github.com/Flor-balladares" class="link">Florencia Balladares</a> ·
+                <a href="https://github.com/cococalabro" class="link">Ángel Calabró</a> ·
+                <a href="https://github.com/GiulianaDeEt" class="link">Dealbera Giuliana</a> ·
+                <a href="https://github.com/Tiago0613" class="link">Ibarola Tiago</a> ·
+                <a href="https://github.com/YESS-BAIT-LEJEM" class="link">Yessica Reynoso</a>
+            </p>
+            <p class="m-0 mbt1">CodeHive Team | UTN San Rafael</p>
+        </div>
     </footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
