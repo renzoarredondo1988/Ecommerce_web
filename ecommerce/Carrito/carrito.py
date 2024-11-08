@@ -17,8 +17,6 @@ class Carro:#Importante! los datos obtenidos en una sesion pueden pasar al templ
 
     def agregar(self,producto):#Metodo agregar, recibe como parametro el objeto producto, definido
         #en la funcion agregar_producto de la vista
-
-        precio = float(producto.precio)  # Convertimos el precio a float
         if str(producto.id) not in self.carro.keys():
             self.carro[producto.id]= {
                 "producto_id":producto.id,
@@ -54,7 +52,7 @@ class Carro:#Importante! los datos obtenidos en una sesion pueden pasar al templ
         for key,value in self.carro.items():
             if key==str(producto.id):
                 value["cantidad"]=value["cantidad"]-1
-                value["precio"]=float(value["precio"])-producto.precio
+                value["precio"]=float(value["precio"])-float(producto.precio)
                 if value["cantidad"]<1:
                     self.eliminar(producto)
                 break

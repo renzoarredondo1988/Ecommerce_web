@@ -49,7 +49,7 @@ def restar_producto(request,producto_id):
 
     carro.restar_producto(producto=producto)
 
-    return redirect("carrito")
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 def limpiar_carro(request,producto_id):
     
