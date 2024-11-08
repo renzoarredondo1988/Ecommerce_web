@@ -3,6 +3,8 @@ from django.shortcuts import redirect
 from .carrito import Carro
 from GestionUsuarios.models import Producto
 from django.http import JsonResponse
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 
 
 def carrito(request):
@@ -21,10 +23,13 @@ def agregar_producto(request,producto_id): #producto_id proviene de la URL que s
     producto=Producto.objects.get(id=producto_id) #Esta línea busca un objeto Producto en la base de datos
     #cuyo id coincide con el producto_id que se pasó como argumento.
 
+    producto.precio = float(producto.precio)
+
     carro.agregar(producto=producto)#Usas producto=producto para indicar que el argumento producto de la
     #función agregar debe recibir el objeto producto que acabas de recuperar de la base de datos.
 
-    return redirect('carrito')
+    # Redirige a la misma página en la que se encuentra el usuario, pasando el producto_id como parte de la URL
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 def eliminar_producto(request,producto_id):
     
@@ -34,7 +39,7 @@ def eliminar_producto(request,producto_id):
 
     carro.eliminar(producto=producto)
 
-    return redirect("carrito")
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 def restar_producto(request,producto_id):
     

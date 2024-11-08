@@ -1,16 +1,21 @@
 <h1>{{ producto.nombre }}</h1>
 <p>{{ producto.descripcion }}</p>
 <p>Stock: {{ producto.stock }}</p>
-<p>Categoría: {{ producto.categoria__tipo }}</p>
-<p>Juego: {{ producto.juego__nombre }}</p>
+<p>Categoría: {{ producto.categoria.tipo }}</p>
+<p>Juego: {{ producto.juego.nombre }}</p>
+
+<!-- Aquí accedes directamente al campo imagen del modelo -->
 <img src="{{ producto.imagen.url }}" alt="Imagen de {{ producto.nombre }}" class="img-fluid">
-<p>{{producto.precio}} $</p>
-<button><a href="{% url 'producto:api_mostrar_catalogo' %}">Volver al catalogo</a></button>
-<a href="{% url 'carro:agregar' producto.id %}" class="btn btn-success">Agregar al carro</a>
 
-<div class="card-footer text-center">
+<!-- Botón para agregar o quitar del carrito -->
 
+
+{% if producto_en_carro %}
+    <a href="{% url 'carro:eliminar' producto.id %}" class="btn btn-danger">Quitar del carro</a>
+{% else %}
     <a href="{% url 'carro:agregar' producto.id %}" class="btn btn-success">Agregar al carro</a>
-    <!-- se esta enviando a la url agregar de la app carro (se definio carro como
-     namespace, en setting, y producto.id se esta enviando a la vista agregar_producto)-->
-</div>
+{% endif %}
+
+
+
+<button><a href="{% url 'producto:api_mostrar_catalogo' %}">Volver al catalogo</a></button>

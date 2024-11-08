@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from Carrito.carrito import Carro
 from GestionUsuarios.models import Producto, Categoria, Juego, Detalles
 from django.db.models import Q
 from django.http import JsonResponse
@@ -47,8 +48,11 @@ def api_detalle_producto(request, producto_id):
     if not producto:
         return render(request, 'Productos/producto_no_encontrado.html')
 
-    # Devuelve el producto a la plantilla
-    return render(request, 'Productos/ver_producto.html', {'producto': producto})
+    # Verifica si el producto ya está en el carrito
+    carro = Carro(request)
+    producto_en_carro = str(producto.id) in carro.carro  # Cambiado de producto['id'] a producto.id
+
+    return render(request, 'Productos/ver_producto.html', {'producto': producto, 'producto_en_carro': producto_en_carro})
     
 
 
