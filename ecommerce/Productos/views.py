@@ -50,7 +50,6 @@ def api_detalle_producto(request, producto_id):
     # Devuelve el producto a la plantilla
     return render(request, 'Productos/ver_producto.html', {'producto': producto})
     
-    
 
 
 

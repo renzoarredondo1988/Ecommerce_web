@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.shortcuts import redirect
 from .carrito import Carro
 from GestionUsuarios.models import Producto
+from django.http import JsonResponse
 
 
 def carrito(request):

@@ -1,8 +1,13 @@
 from django.urls import path
 from Carrito import views
 
-urlpatterns = [
-    path('', views.carrito, name='carrito'),  # URL para mostrar el contenido del carrito
-   
 
-]
+app_name="carro" #equivalente al namespace
+
+# URL para mostrar el contenido del carrito
+urlpatterns = [
+                path('', views.carrito, name='carrito'),
+                path("agregar/<int:producto_id>/",views.agregar_producto,name="agregar"),
+                path("eliminar/<int:producto_id>/",views.eliminar_producto,name="eliminar"),
+                path("restar/<int:producto_id>/",views.restar_producto,name="restar"),
+                path("limpiar/",views.limpiar_carro,name="limpiar"),]

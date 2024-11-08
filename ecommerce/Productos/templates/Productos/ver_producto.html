@@ -6,3 +6,11 @@
 <img src="{{ producto.imagen.url }}" alt="Imagen de {{ producto.nombre }}" class="img-fluid">
 <p>{{producto.precio}} $</p>
 <button><a href="{% url 'producto:api_mostrar_catalogo' %}">Volver al catalogo</a></button>
+<a href="{% url 'carro:agregar' producto.id %}" class="btn btn-success">Agregar al carro</a>
+
+<div class="card-footer text-center">
+
+    <a href="{% url 'carro:agregar' producto.id %}" class="btn btn-success">Agregar al carro</a>
+    <!-- se esta enviando a la url agregar de la app carro (se definio carro como
+     namespace, en setting, y producto.id se esta enviando a la vista agregar_producto)-->
+</div>
