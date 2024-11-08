@@ -17,6 +17,8 @@ class Carro:#Importante! los datos obtenidos en una sesion pueden pasar al templ
 
     def agregar(self,producto):#Metodo agregar, recibe como parametro el objeto producto, definido
         #en la funcion agregar_producto de la vista
+
+        precio = float(producto.precio)  # Convertimos el precio a float
         if str(producto.id) not in self.carro.keys():
             self.carro[producto.id]= {
                 "producto_id":producto.id,
