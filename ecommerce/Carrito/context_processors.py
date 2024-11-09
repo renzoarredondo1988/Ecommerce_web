@@ -19,7 +19,9 @@ def auth_and_cart_info(request):
         # Calcular el total del carrito
         if 'carro' in request.session:
             for item in request.session['carro'].values():
-                total += float(item['precio']) * item.get('cantidad', 1)  # Multiplicamos por cantidad si existe
+                precio = float(item.get('precio', 0))  # Si no tiene precio, usa 0
+                cantidad = int(item.get('cantidad', 1))  # Si no tiene cantidad, usa 1
+                total += precio * cantidad  # Multiplicamos por cantidad si existe
 
     return {
         'authenticated': authenticated, #{% if request.session.authenticated %}

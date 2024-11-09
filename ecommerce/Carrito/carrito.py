@@ -30,7 +30,7 @@ class Carro:#Importante! los datos obtenidos en una sesion pueden pasar al templ
             for key,value in self.carro.items():
                 if key==str(producto.id):
                     value["cantidad"]=value["cantidad"]+1
-                    value["precio"]=float(value["precio"])+producto.precio
+                    
                     break
 
         self.guardar_carro()#se guardan los datos de la sesion, lo que hace que persistan los datos al generar
@@ -52,7 +52,7 @@ class Carro:#Importante! los datos obtenidos en una sesion pueden pasar al templ
         for key,value in self.carro.items():
             if key==str(producto.id):
                 value["cantidad"]=value["cantidad"]-1
-                value["precio"]=float(value["precio"])-float(producto.precio)
+                
                 if value["cantidad"]<1:
                     self.eliminar(producto)
                 break

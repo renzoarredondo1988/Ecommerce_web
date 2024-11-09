@@ -16,11 +16,9 @@
   <div class="modal-overlay" id="modal-overlay"></div>
   <!-- Es como un background para mostrar la web en segundo plano-->
   <div class="modal-container" id="modal-container">
-    <a href="#">
-      <div class="modal-close">❌</div>
-    </a>
+    
 
-
+    <a href="{% url 'carro:limpiar' %}" class="quantity-btn-increase">Vaciar carro</a>
     <div class="modal-body">
       {% for key, item in request.session.carro.items %}
       <div class="product">
@@ -43,8 +41,10 @@
           <a href="{% url 'carro:agregar' item.producto_id %}" class="quantity-btn-increase">+</a>
       </div>
 
+
+      <!-- Botón para eliminar producto seleccionado -->
         <div class="price">{{item.precio}} </div>
-        <div class="delete-product">❌</div>
+        <a href="{% url 'carro:eliminar' item.producto_id %}" class="quantity-btn-increase">❌</a>
       </div>
 
       <div class="price">
@@ -54,7 +54,7 @@
       {% endfor %}
       <!-- MODAL FOOTER -->
       <div class="modal-footer">
-        <div class="total-price">Total: $.....</div>
+        <div class="total-price">Total: ${{importe_total_carro}}</div>
         <button class="btn-primary" id="checkout-btn"> Go to Checkout</button>
       </div>
     </div>
