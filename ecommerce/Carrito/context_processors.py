@@ -6,6 +6,7 @@ def auth_and_cart_info(request):
     user_id = None
     user_email = None
     user_name = None
+    user_pais= None
     total = 0
 
     # Verificar si el usuario está autenticado
@@ -14,7 +15,7 @@ def auth_and_cart_info(request):
         user_id = request.session['user_id']  # Guardamos el ID del usuario en la variable
         user_email = request.session['user_email']  # Guardamos el correo del usuario
         user_name = request.session['username']  # Guardamos el nombre del usuario
-
+        user_pais= request.session['user_pais']
         # Calcular el total del carrito
         if 'carro' in request.session:
             for item in request.session['carro'].values():
@@ -25,5 +26,7 @@ def auth_and_cart_info(request):
         'user_id': user_id,
         'user_email': user_email,
         'user_name': user_name,
+        'user_pais':user_pais,
         'importe_total_carro': total,
     }
+
