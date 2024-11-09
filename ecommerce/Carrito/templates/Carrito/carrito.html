@@ -63,9 +63,11 @@
         
       </div>
 
-      <a href="{% url 'pagos:metodo_pago'  %}" class="quantity-btn-increase">Pagar</a>
-
-
+      {% if authenticated %}
+      <a href="{% url 'pagos:metodo_pago' %}" class="quantity-btn-increase">Pagar</a>
+      {% else %}
+      <p>Debe loguearse para poder pagar</p>
+      {% endif %}
     </div>
   </div>
 
