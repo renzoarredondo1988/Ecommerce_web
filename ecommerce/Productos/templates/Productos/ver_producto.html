@@ -1,3 +1,10 @@
+{% extends "InterfazGeneral/base.html" %}
+
+{% load static %}
+<link rel="stylesheet" href="../../../InterfazGeneral/static/InterfazGeneral/css/prueba.css">
+
+{% block content%}
+
 <h1>{{ producto.nombre }}</h1>
 <p>{{ producto.descripcion }}</p>
 <p>Stock: {{ producto.stock }}</p>
@@ -9,7 +16,6 @@
 
 <!-- Botón para agregar o quitar del carrito -->
 
-
 {% if producto_en_carro %}
     <a href="{% url 'carro:eliminar' producto.id %}" class="btn btn-danger">Quitar del carro</a>
 {% else %}
@@ -17,7 +23,8 @@
 {% endif %}
 
 
-
 <button><a href="{% url 'producto:api_mostrar_catalogo' %}">Volver al catalogo</a></button>
 
 <a href="{% url 'carro:carrito' %}" class="btn btn-danger">Ir al carrito</a>
+
+{% endblock %}

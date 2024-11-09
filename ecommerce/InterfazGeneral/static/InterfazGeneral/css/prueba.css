@@ -1,0 +1,15 @@
+
+h1{
+    display: inline;
+    text-align: center;
+    font-weight: bold;
+}
+
+p{
+    display: inline;
+    text-align: center;
+    color: black;
+    font-weight: bold;
+    height: 100;
+    width: auto;
+}
