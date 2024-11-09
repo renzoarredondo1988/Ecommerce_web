@@ -57,13 +57,67 @@ header::after {
     text-shadow: 0 0 15px var(--colorAcento) !important;
 }
 
-.nav-link{
+.nav-link, .link{
     color: var(--colorTexto) !important;
 }
 
-.nav-link:hover{
+.nav-link:hover, .link:hover{
     color: var(--colorAcento) !important;
     text-shadow: 0 0 15px var(--colorAcento) !important;
+}
+
+.text-neon{
+    color: var(--colorTexto);
+    font-family: var(--tipografia);
+}
+
+.text-primary {
+    color: var(--colorTexto);
+    text-shadow: 0 0 8px var(--colorPrimario), 0 0 12px var(--colorPrimario);
+}
+
+.formRegister {
+    background-color: rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0 15px var(--colorPrimario);
+    max-width: 400px; margin: auto;
+    
+}
+
+.form-control {
+    background-color: transparent;
+    border: 1px solid var(--colorPrimario);
+    padding: 10px;
+}
+
+.form-control:focus {
+    border-color: var(--colorPrimario);
+    box-shadow: 0 0 8px var(--colorPrimario);
+}
+
+.btn-neon {
+    background-color: var(--colorPrimario);
+    color: var(--colorSecundario);
+    padding: 2px 0px;
+    transition: 0.2s ease-in-out;
+}
+
+.btn-neon:hover {
+    box-shadow: 0 0 2px var(--colorPrimario), 0 0 4px var(--colorPrimario), 0 0 6px var(--colorPrimario);    
+    background-color: var(--colorPrimario);
+}
+
+.a-btn{
+    background-color: var(--colorSecundario);
+    border-color: var(--colorPrimario);
+    color: var(--colorTexto);
+    padding: 2px 0px;
+    transition: 0.2s ease-in-out;
+}
+
+.a-btn:hover{    
+    background-color: var(--colorSecundario);
+    border-color: var(--colorSecundario);
+    color: var(--colorTexto);
 }
 
 /*
