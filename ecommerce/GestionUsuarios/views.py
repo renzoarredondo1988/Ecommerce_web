@@ -42,8 +42,12 @@ def registerUser(request):
         )
         nuevo_usuario.save()
 
-        # Enviar la respuesta de éxito
-        return JsonResponse({'success': True, 'message': 'Usuario registrado correctamente'}, status=201)
+        # enviamos por contxto los datos recuperados del formulario
+        return render(request, 'GestionUsuarios/confirmacion.html', {
+            'mensaje': 'Usuario registrado correctamente',
+            'nombre': nombre,
+            'apellido': apellido
+        })
 
     return render(request, 'GestionUsuarios/registro.html')
 
@@ -77,7 +81,10 @@ def login_user(request):
 
                 #print(request.session)
 
-                return JsonResponse({'success': True, 'message': 'Inicio de sesión exitoso',}, status=200)
+                return render(request, 'InterfazGeneral/index.html', {
+                'mensaje': 'Inicio de sesion correcto',
+                
+            })
             else:
                 return render(request, 'GestionUsuarios/login.html', {
                     'error_message': 'Contraseña incorrecta.'
