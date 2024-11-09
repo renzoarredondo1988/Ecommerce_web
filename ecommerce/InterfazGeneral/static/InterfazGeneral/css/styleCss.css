@@ -49,6 +49,17 @@ header::after {
     text-shadow: 0 0 8px var(--colorPrimario), 0 0 12px var(--colorPrimario);
 } /* LETRA NEON AZUL */
 
+.text-large {
+    font-size: 2.0rem !important;
+}
+
+.text-medium{
+    font-size: 1.50rem !important;
+}
+
+.text-small {
+    font-size: 1rem !important;
+}
 /* BOTONES */
 .btn-neon {
     background-color: var(--colorPrimario) !important;
@@ -129,6 +140,23 @@ header::after {
     margin-bottom: 20px !important;
 }
 
+.custom-card{
+    width: 75% !important;
+    height: auto !important;
+    margin-top: 20px !important;
+}
+
+.custom-card img{
+    width: 100% !important;
+    height: auto;
+    max-height: 180px !important;
+    object-fit: cover !important;
+}
+
+.items-cards > div{
+    margin-left: -15px !important;
+    margin-right: -15px !important;
+}
 
 /* FORMULARIO LOGIN/REGISTER */
 
