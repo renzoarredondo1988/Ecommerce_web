@@ -76,48 +76,72 @@ header::after {
     text-shadow: 0 0 8px var(--colorPrimario), 0 0 12px var(--colorPrimario);
 }
 
-.formRegister {
-    background-color: rgba(0, 0, 0, 0.8);
-    box-shadow: 0 0 15px var(--colorPrimario);
-    max-width: 400px; margin: auto;
-    
+.formRegister{
+    background-color: rgba(0, 0, 0, 0.8) !important;
+    box-shadow: 0 0 15px var(--colorPrimario) !important;
+    max-width: 400px; margin: auto !important;
 }
 
-.form-control {
-    background-color: transparent;
-    border: 1px solid var(--colorPrimario);
-    padding: 10px;
+.form-control{
+    background-color: var(--colorSecundario) !important;
+    border: 1px solid var(--colorPrimario) !important;
+    height: 45px !important;
+    width: 100%; 
 }
 
-.form-control:focus {
-    border-color: var(--colorPrimario);
-    box-shadow: 0 0 8px var(--colorPrimario);
+.form-control:focus  {
+    border-color: var(--colorPrimario) !important;
+    box-shadow: 0 0 8px var(--colorPrimario) !important;
+}
+select.form-control{
+    color: var(--colorTexto) !important;
+    height: 45px !important;
+}
+
+select.form-control option { 
+    background-color: black !important; 
+    color: var(--colorTexto) !important; 
+    border-color: var(--colorPrimario) !important;
+    box-shadow: 0 0 8px var(--colorPrimario) !important;
+}
+
+select.form-control option:focus { 
+    border-color: var(--colorPrimario) !important; /* Cambia el borde azul al hacer clic */ 
+    box-shadow: 0 0 8px var(--colorPrimario) !important; /* Añade sombra si es necesario */ 
+    background-color: #000080 !important;
+} 
+select.form-control option:hover { 
+    border-color: var(--colorPrimario) !important; /* Cambia el borde al pasar el cursor */ 
 }
 
 .btn-neon {
-    background-color: var(--colorPrimario);
-    color: var(--colorSecundario);
-    padding: 2px 0px;
-    transition: 0.2s ease-in-out;
+    background-color: var(--colorPrimario) !important;
+    color: var(--colorSecundario) !important;
+    padding: 3px 0px !important;
+    transition: 0.2s ease-in-out !important;
+    width: 100% !important;
+    margin-top: 20px !important;
 }
 
 .btn-neon:hover {
-    box-shadow: 0 0 2px var(--colorPrimario), 0 0 4px var(--colorPrimario), 0 0 6px var(--colorPrimario);    
-    background-color: var(--colorPrimario);
+    box-shadow: 0 0 2px var(--colorPrimario), 0 0 6px var(--colorPrimario), 0 0 10px var(--colorPrimario) !important;    
+    background-color: var(--colorPrimario) !important;
 }
 
 .a-btn{
-    background-color: var(--colorSecundario);
-    border-color: var(--colorPrimario);
-    color: var(--colorTexto);
-    padding: 2px 0px;
-    transition: 0.2s ease-in-out;
+    background-color: var(--colorSecundario) !important;
+    border-color: var(--colorPrimario) !important;
+    color: var(--colorTexto) !important;
+    padding: 3px 0px !important;
+    transition: 0.2s ease-in-out !important;    
+    width: 100% !important;
+    margin-top: 10px !important;
 }
 
 .a-btn:hover{    
-    background-color: var(--colorSecundario);
-    border-color: var(--colorSecundario);
-    color: var(--colorTexto);
+    background-color: var(--colorSecundario) !important;
+    border-color: var(--colorSecundario) !important;
+    color: var(--colorTexto) !important;
 }
 
 /*
