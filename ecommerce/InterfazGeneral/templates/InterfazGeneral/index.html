@@ -8,47 +8,61 @@
     <!--<header>
         <h1>CodeHive</h1>
     </header>-->
-
-    <section class="banner">
-        <div class="banner-text">
-            <p>BIENVENIDO</p>
-            <h2>CONSIGUE TUS MEJORES SKIN PARA LOS JUEGOS QUE PREFIERAS</h2>
-            <p>DESCUENTOS SEMANALES!!</p>
-        </div>
-        <img src="ecommerce/media/paginainicio/videojuegos.jpg" alt="Imagen del Banner">
-    </section>
-
-    <section class="product-grid">
-        <div class="card">
-            <img src="path/to/your/product-image1.jpg" alt="Producto 1">
-            <h3>Nombre producto</h3>
-            <p class="price">$--.--</p>
-            <a href="#" class="btn">VER</a>
-        </div>
-        <div class="card">
-            <img src="path/to/your/product-image2.jpg" alt="Producto 2">
-            <h3>Nombre producto</h3>
-            <p class="price">$--.--</p>
-            <a href="#" class="btn">VER</a>
-        </div>
-        <div class="card">
-            <img src="path/to/your/product-image3.jpg" alt="Producto 3">
-            <h3>Nombre producto</h3>
-            <p class="price">$--.--</p>
-            <a href="#" class="btn">VER</a>
-        </div>
-        <div class="card">
-            <img src="path/to/your/product-image4.jpg" alt="Producto 4">
-            <h3>Nombre producto</h3>
-            <p class="price">$--.--</p>
-            <a href="#" class="btn">VER</a>
-        </div>
-    </section>
+<div>
+    <div class="">
+        <section class="banner-index row align-items-center">
+            <div class="col-md-6 mb-7 text-center container border border-primary p-4 neonBox">
+                <p class="text-neon">BIENVENIDO</p>
+                <h2 class="text-primary">CONSIGUE TUS MEJORES SKIN PARA LOS JUEGOS QUE PREFIERAS</h2>
+                <p class="text-neon">DESCUENTOS SEMANALES!!</p>
+            </div>
+            <img src="../../../media/paginainicio/fotoBanner.png" alt="Imagen del Banner" class="img-fluid img-banner">
+        </section>
+    </div>
+    
+        <section class="row justify-content-center">
+            <div class="col-md-2 mb-3">
+                <div class="border border-primary p-4 neonBox text-center">
+                    <img src="path/to/your/product-image1.jpg" alt="Producto 1" class="img-fluid">
+                    <div class="card-body">    
+                        <h4>Nombre producto</h4>
+                        <p class="price">$--.--</p>
+                        <a href="#" class="btn btn-neon">VER</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 mb-3">
+                <div class="border border-primary p-4 neonBox text-center">
+                    <img src="path/to/your/product-image2.jpg" alt="Producto 2" class="img-fluid">
+                    <div class="card-body">    
+                        <h4>Nombre producto</h4>
+                        <p class="price">$--.--</p>
+                        <a href="#" class="btn btn-neon">VER</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 mb-3">
+                <div class="border border-primary p-4 neonBox text-center">
+                    <img src="path/to/your/product-image3.jpg" alt="Producto 3" class="img-fluid">
+                    <div class="card-body">    
+                        <h4>Nombre producto</h4>
+                        <p class="price">$--.--</p>
+                        <a href="#" class="btn btn-neon">VER</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 mb-3">
+                <div class="border border-primary p-4 neonBox text-center">
+                    <img src="path/to/your/product-image4.jpg" alt="Producto 4" class="img-fluid">
+                    <div class="card-body">    
+                        <h4>Nombre producto</h4>
+                        <p class="price">$--.--</p>
+                        <a href="#" class="btn btn-neon">VER</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
     <p>{{ mensaje }}</p>
-
-    <footer>
-        <p>&copy; 2024 CodeHive</p>
-    </footer>
-
-
+</div>
 {% endblock %}

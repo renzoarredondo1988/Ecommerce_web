@@ -112,14 +112,26 @@ header::after {
     text-shadow: 0 0 15px var(--colorAcento) !important;
 }
 
-/* INDEX */
-
-/* FORMULARIO LOGIN/REGISTER */
-.formUser{
+.neonBox{
     background-color: rgba(0, 0, 0, 0.8) !important;
     box-shadow: 0 0 15px var(--colorPrimario) !important;
     max-width: 400px; margin: auto !important;
 }
+
+/* INDEX */
+.img-banner{
+    width: 45%  !important;
+    height: auto !important;
+    padding-right: 5% !important;
+    margin-left: -10% !important;
+    z-index: 2 !important;
+    margin-top: 15px !important;
+    margin-bottom: 20px !important;
+}
+
+
+/* FORMULARIO LOGIN/REGISTER */
+
 .form-control{
     background-color: var(--colorSecundario) !important;
     border: 1px solid var(--colorPrimario) !important;
