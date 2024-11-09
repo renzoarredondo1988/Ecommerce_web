@@ -37,6 +37,52 @@ header::after {
         0 20px 20px rgba(45, 34, 252, 0.2); 
 }
 
+/* ESTILOS DE PALABRAS */
+.text-neon{
+    color: var(--colorTexto);
+    font-family: var(--tipografia);
+    margin-bottom: 25px;
+} /* LETRA BLANCA */ 
+
+.text-primary {
+    color: var(--colorTexto);
+    text-shadow: 0 0 8px var(--colorPrimario), 0 0 12px var(--colorPrimario);
+} /* LETRA NEON AZUL */
+
+/* BOTONES */
+.btn-neon {
+    background-color: var(--colorPrimario) !important;
+    color: var(--colorSecundario) !important;
+    padding: 3px 0px !important;
+    transition: 0.2s ease-in-out !important;
+    width: 100% !important;
+    margin-top: 20px !important;
+    font-weight: bold !important;
+} /* BOTÓN PRINCIPAL */
+
+.btn-neon:hover {
+    box-shadow: 0 0 2px var(--colorPrimario), 0 0 6px var(--colorPrimario), 0 0 10px var(--colorPrimario) !important;    
+    background-color: var(--colorPrimario) !important;
+    color: var(--colorTexto) !important;
+}
+
+.a-btn{
+    background-color: var(--colorSecundario) !important;
+    border-color: var(--colorPrimario) !important;
+    color: var(--colorTexto) !important;
+    padding: 3px 0px !important;
+    transition: 0.2s ease-in-out !important;    
+    width: 100% !important;
+    margin-top: 10px !important;
+} /* BOTÓN SECUNDARIO */
+
+.a-btn:hover{    
+    background-color: var(--colorSecundario) !important;
+    border-color: var(--colorSecundario) !important;
+    color: var(--colorTexto) !important;
+}
+
+/* HEADER */
 .navbar-brand{
     color: var(--colorTexto) !important;
     font-size: 2em !important;
@@ -66,30 +112,20 @@ header::after {
     text-shadow: 0 0 15px var(--colorAcento) !important;
 }
 
-.text-neon{
-    color: var(--colorTexto);
-    font-family: var(--tipografia);
-    margin-bottom: 25px;
-}
+/* INDEX */
 
-.text-primary {
-    color: var(--colorTexto);
-    text-shadow: 0 0 8px var(--colorPrimario), 0 0 12px var(--colorPrimario);
-}
-
+/* FORMULARIO LOGIN/REGISTER */
 .formUser{
     background-color: rgba(0, 0, 0, 0.8) !important;
     box-shadow: 0 0 15px var(--colorPrimario) !important;
     max-width: 400px; margin: auto !important;
 }
-
 .form-control{
     background-color: var(--colorSecundario) !important;
     border: 1px solid var(--colorPrimario) !important;
     height: 45px !important;
     width: 100%; 
 }
-
 .form-control:focus  {
     border-color: var(--colorPrimario) !important;
     box-shadow: 0 0 8px var(--colorPrimario) !important;
@@ -115,37 +151,11 @@ select.form-control option:hover {
     border-color: var(--colorPrimario) !important; /* Cambia el borde al pasar el cursor */ 
 }
 
-.btn-neon {
-    background-color: var(--colorPrimario) !important;
-    color: var(--colorSecundario) !important;
-    padding: 3px 0px !important;
-    transition: 0.2s ease-in-out !important;
-    width: 100% !important;
-    margin-top: 20px !important;
-    font-weight: bold !important;
-}
+/* PRODUCTO */
 
-.btn-neon:hover {
-    box-shadow: 0 0 2px var(--colorPrimario), 0 0 6px var(--colorPrimario), 0 0 10px var(--colorPrimario) !important;    
-    background-color: var(--colorPrimario) !important;
-    color: var(--colorTexto) !important;
-}
+/* CARRITO */
 
-.a-btn{
-    background-color: var(--colorSecundario) !important;
-    border-color: var(--colorPrimario) !important;
-    color: var(--colorTexto) !important;
-    padding: 3px 0px !important;
-    transition: 0.2s ease-in-out !important;    
-    width: 100% !important;
-    margin-top: 10px !important;
-}
-
-.a-btn:hover{    
-    background-color: var(--colorSecundario) !important;
-    border-color: var(--colorSecundario) !important;
-    color: var(--colorTexto) !important;
-}
+/* PASARELA */
 
 /*
 header {
