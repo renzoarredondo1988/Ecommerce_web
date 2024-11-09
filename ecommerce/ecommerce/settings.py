@@ -161,3 +161,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #INTEGRACION DE MERCADOPAGO
 MERCADO_PAGO_ACCESS_TOKEN = 'APP_USR-5285721843882809-101119-da1cfb4649ba02083771e8f3bf6a83ad-238786920'
 MERCADO_PAGO_PUBLIC_KEY = 'APP_USR-3a6866da-6e61-4cc3-9215-4b3e6d9fec70'
+
+
+# settings.py
+#SESSION_ENGINE = 'django.contrib.sessions.backends.db'  # Almacenará la sesión en la base de datos
+SESSION_COOKIE_NAME = 'sessionid'  # Nombre del cookie que usará para almacenar la sesión
+SESSION_COOKIE_AGE = 1800  # La sesión durará una hora
