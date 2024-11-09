@@ -52,10 +52,15 @@
         <p>{% widthratio item.cantidad 1 item.precio %} $</p>
     </div>
       {% endfor %}
+
+      <div style="background-color: white;">
+     
+    </div>
+
       <!-- MODAL FOOTER -->
       <div class="modal-footer">
         <div class="total-price">Total: ${{importe_total_carro}}</div>
-        <button class="btn-primary" id="checkout-btn"> Go to Checkout</button>
+        
       </div>
     </div>
   </div>
@@ -70,6 +75,7 @@
 
   <!-- Boostrap -->
 
-
+  
 
 {% endblock %}
+

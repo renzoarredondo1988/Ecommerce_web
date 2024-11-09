@@ -5,11 +5,15 @@ from GestionUsuarios.models import Producto
 from django.http import JsonResponse
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+import mercadopago
+from django.conf import settings
 
 
 def carrito(request):
 
      productos=Producto.objects.all()
+
+     
      return render(request, "Carrito/carrito.html", {"productos": productos})#en el render de tienda.html, podre 
 #acceder a los atributos del objeto productos, que se envian dentro de un dicc con la clave "productos"
 
@@ -61,24 +65,6 @@ def limpiar_carro(request):
 
 
 
-
-
-
-"""
-def carrito(request):
-    if request.method == 'POST':
-        metodo_pago = request.POST.get('metodo_pago')
-        #Ojo aca. Usamos el metodo redirect, que lo que hace es enviarnos a la URL con el name='metodo_pago_x'
-        #cuando se necesita cambiar de url porque nos dirigimos a otra pagina se usa redirect y no render.
-        #al movernos a esa nueva URL, se llama a la funcion def metodo_pago_x.
-        if metodo_pago == '1':
-            return redirect('pagos:metodo_pago_1')
-        elif metodo_pago == '2':
-            return redirect('pagos:metodo_pago_2')
-    return render(request,"Carrito/carrito.html")  # Aquí iría la lógica para mostrar el contenido del carrito
-
-
-"""
 
 
 
