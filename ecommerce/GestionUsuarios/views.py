@@ -101,8 +101,7 @@ def testeo(request):
     return render(request, 'GestionUsuarios/testeo.html')
 
 def logout_user(request):
-    if request.method == 'POST':
-        request.session.flush()  # Elimina todos los datos de la sesión
-        return JsonResponse({'success': True, 'message': 'Sesión cerrada correctamente'}, status=200)
+    request.session.flush()  # Esto elimina todos los datos de la sesión
 
-    return redirect('')  # Redirige a la página de inicio
+    # Obtener la URL de la que vino el usuario (o la home si no se encuentra)
+    return redirect(request.META.get('HTTP_REFERER', 'interfaz_general:home'))
