@@ -1,10 +1,15 @@
 {% extends "InterfazGeneral/base.html" %}
 
 {% load static %}
+<<<<<<< HEAD
+
+{% block content %}
+=======
 <link rel="stylesheet" href="../../../InterfazGeneral/static/InterfazGeneral/css/prueba.css">
 
 {% block content%}
 
+>>>>>>> 04450e9e88c0870207e91a1a9a9f96d5c4c26d77
 <h1>{{ producto.nombre }}</h1>
 <p>{{ producto.descripcion }}</p>
 <p>Stock: {{ producto.stock }}</p>
@@ -27,4 +32,8 @@
 
 <a href="{% url 'carro:carrito' %}" class="btn btn-danger">Ir al carrito</a>
 
+<<<<<<< HEAD
 {% endblock %}
+=======
+{% endblock %}
+>>>>>>> 04450e9e88c0870207e91a1a9a9f96d5c4c26d77
