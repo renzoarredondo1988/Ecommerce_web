@@ -139,8 +139,6 @@ header::after {
     filter: drop-shadow(0 0 4px var(--colorAcento)) drop-shadow(0 0 15px var(--colorAcento));
 }
 
-
-
 /* INDEX */
 .img-banner{
     width: 45%  !important;
