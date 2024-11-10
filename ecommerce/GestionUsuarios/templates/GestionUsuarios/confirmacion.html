@@ -4,9 +4,14 @@
 
 {% block content %}
 
-    <h1>Registro Exitoso</h1>
-    <p>{{ mensaje }}</p>
-    <p>¡Bienvenido a CodeHive, {{ nombre }} {{ apellido }}! Su cuenta ha sido creada exitosamente.</p>
-    <a href="{% url 'gestion_usuario:inicio_sesion' %}">Iniciar sesión</a>
-    
+<div class="d-flex align-items-center justify-content-center mt-4">
+    <div class="container text-center">
+        <div class="neonBox border border-primary p-4">    
+            <h1 class="text-neon text-primary">Registro Exitoso</h1>
+            <p class="text-neon text-small">{{ mensaje }}</p>
+            <p class="text-neon text-medium">¡Bienvenido a CodeHive, {{ nombre }} {{ apellido }}! Su cuenta ha sido creada exitosamente.</p>
+            <a class="nav-link" href="{% url 'gestion_usuario:inicio_sesion' %}"><button type="button" class="btn btn-neon">Iniciar Sesion</button></a>
+        </div>
+    </div>
+</div>
 {% endblock %}

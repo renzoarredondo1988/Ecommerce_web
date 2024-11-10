@@ -35,17 +35,21 @@
                 </form>
 
                 <!-- Menú de navegación colapsable -->
-                <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo03">
+                <div class="collapse navbar-collapse justify-content-end mr-2" id="navbarTogglerDemo03">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a class="nav-link {% if request.resolver_match.url_name == 'productos' %}active{% endif %}"
                                 href="{% url 'producto:api_mostrar_catalogo' %}">Productos</a>
                         </li>
-                        <li class="nav-item">
-                            {% if authenticated %}
+                        {% if authenticated %}
+                        <li class="nav-item">                            
                             <span class="nav-link">Hola, {{ user_name }}</span>
+                        </li>
+                        <li>
                             <a class="nav-link" href="{% url 'gestion_usuario:logout' %}">Log Out</a>
                             {% else %}
+                        </li>
+                        <li>
                             <a class="nav-link" href="{% url 'gestion_usuario:inicio_sesion' %}">Log In</a>
                         </li>
                         <li class="nav-item">
