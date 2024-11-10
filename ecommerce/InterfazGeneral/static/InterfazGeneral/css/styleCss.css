@@ -201,53 +201,152 @@ select.form-control option:hover {
     border-color: var(--colorPrimario) !important; /* Cambia el borde al pasar el cursor */ 
 }
 
-/* PRODUCTO */
-
-/* CARRITO */
-
-/* PASARELA */
-
-/*
-header {
+/* --------------------------------------------------------------------------------------------------- */
+/* Contenedor de la lista de productos con scroll horizontal */
+.modal-body {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #363EFF;
-    color: #fff;
+    overflow-x: auto; /* Scroll horizontal si hay muchos productos */
+    justify-content: center;
+    padding: 10px;
+    gap: 15px;
+    scroll-behavior: smooth; /* Desplazamiento suave */
 }
-.logo {
-    font-size: 24px;
+  
+  /* Estilos individuales de cada producto */
+.product {
+    display: flex;
+    flex-direction: column; /* Coloca los elementos verticalmente dentro de cada producto */
+    align-items: center;
+    width: 150px; /* Ancho fijo para cada producto */
+    border: 1px solid #e0e0e0;
+    padding: 10px;
+    background-color: transparent;
+    border-radius: 5px;
+    text-align: center;
+    flex-shrink: 0; /* Previene que los productos se reduzcan demasiado */
+    box-shadow: 0 0 5px var(--colorPrimario), 0 0 5px var(--colorPrimario), 0 0 6px var(--colorPrimario) !important;
+}
+  
+  /* Contenedor de la imagen para mantener el tamaño y proporciones */
+.image-container {
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+  
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+}
+  
+  /* Información del producto */
+.product-info h4 {
+    font-size: 16px;
+    margin: 5px 0;
+    color: #333;
+}
+  
+  /* Contenedor del subtotal */
+.subtotal {
+    font-size: 14px;
+    color: #555;
+    margin-top: 5px;
     font-weight: bold;
 }
-.search-bar {
-    flex-grow: 1;
-    margin: 0 20px;
-}
-.search-bar input {
-    width: 100%;
-    padding: 8px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-.nav-links {
+  
+  /* Contenedor de la cantidad */
+.quantity {
     display: flex;
     align-items: center;
+    justify-content: center;
+    margin: 10px 0;
 }
-.nav-links a, .nav-links button {
-    color: #fff;
-    margin-left: 15px;
+  
+.quantity-btn-increase, .quantity-btn-decrease {
+    font-size: 18px;
+    padding: 5px 5px;
     text-decoration: none;
+    border: 1px solid #ddd;
+    margin: 0 5px;
+    cursor: pointer;
+    box-shadow: 0 0 5px var(--colorPrimario), 0 0 5px var(--colorPrimario), 0 0 6px var(--colorPrimario) !important;
+}
+  
+  /* Mostrar la cantidad actual del producto */
+.quantity-input {
     font-size: 16px;
+    padding: 5px;
+    width: 30px;
+    text-align: center;
+}
+  
+  /* Precio del producto */
+.price {
+    font-weight: bold;
+    color: #333;
+    margin-top: 5px;
 }
 
-.nav-links i{
-    font-size: 20px;
-    color: #2a352a;
+.total-price{
+    background-color: var(--colorAcento) !important;
+    color: var(--colorSecundario) !important;
+    padding: 5px 5px !important;
+    width: 100% !important;
+    margin-top: 20px !important;
+    font-weight: bold !important;
+    font-family: var(--tipografia) !important;
+    border-radius: 5px;
+}
+
+/* Footer del modal */
+.modal-footer {
+    margin-top: 20px; /* Espacio superior para separar del listado de productos */
+    text-align: center;
+    font-size: 24px; /* Tamaño de fuente más grande para destacarlo */
+    font-weight: bold;
+    color: var(--colorPrimario) !important;
+    padding: 15px;
+    width: 50%; /* Anchura del footer para que no ocupe todo el ancho */
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+}
+
+.auth{
+    text-align: center;
+    justify-content: center;
+    font-size: medium;
+    font-weight: bold;
+    color: crimson;
+    padding: 10px 10px;
+}
+
+
+.vaciar-carro{
+    font-size: 18px;
+    padding: 5px;
+    text-decoration: none;
+    border: 1px solid #ddd;
+    margin: 0 5px;
+    cursor: pointer;
+    box-shadow: 0 0 5px var(--colorPrimario), 0 0 5px var(--colorPrimario), 0 0 6px var(--colorPrimario) !important;
+    justify-content: center;
+    text-align: center;
+    width: 150px;
+    margin-left: auto;
+    margin-right: auto;
 
 }
 
-.nav-links i:hover{
-    width: 5%;
-    color: #13c113;
-}*/
+.modal-title{
+    display: none;
+}
+
+.auth a{
+    gap: 10px;
+}
+
+/* ----------------------------------------------------------------------------------------------------- */
