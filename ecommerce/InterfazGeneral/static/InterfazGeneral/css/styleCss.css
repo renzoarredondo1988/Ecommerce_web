@@ -47,18 +47,22 @@ header::after {
 .text-primary {
     color: var(--colorTexto);
     text-shadow: 0 0 8px var(--colorPrimario), 0 0 12px var(--colorPrimario);
+    font-family: var(--tipografia) !important;
 } /* LETRA NEON AZUL */
 
 .text-large {
     font-size: 2.0rem !important;
+    font-family: var(--tipografia) !important;
 }
 
 .text-medium{
     font-size: 1.50rem !important;
+    font-family: var(--tipografia) !important;
 }
 
 .text-small {
     font-size: 1.25rem !important;
+    font-family: var(--tipografia) !important;
 }
 
 /* BOTONES */
