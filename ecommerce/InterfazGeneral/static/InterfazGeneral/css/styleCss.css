@@ -123,7 +123,7 @@ header::after {
     color: var(--colorTexto) !important;
 }
 
-.nav-link svg {
+.nav-link svg, svg {
     fill: var(--colorTexto);
     width: 25px !important;
     height: auto !important;
@@ -216,7 +216,6 @@ select.form-control option:hover {
     background-color: rgba(0, 0, 0, 0.8) !important;
     box-shadow: 0 0 15px var(--colorPrimario) !important;
     width: 800px !important; 
-    margin-top: 20px !important;
     margin-left: auto !important;
     margin-right: auto !important;  
     padding: 8px 0px !important;
