@@ -60,6 +60,7 @@ header::after {
 .text-small {
     font-size: 1rem !important;
 }
+
 /* BOTONES */
 .btn-neon {
     background-color: var(--colorPrimario) !important;
@@ -93,6 +94,13 @@ header::after {
     color: var(--colorTexto) !important;
 }
 
+/* CAJA DE NEON*/
+.neonBox{
+    background-color: rgba(0, 0, 0, 0.8) !important;
+    box-shadow: 0 0 15px var(--colorPrimario) !important;
+    max-width: 400px; margin: auto !important;
+}
+
 /* HEADER */
 .navbar-brand{
     color: var(--colorTexto) !important;
@@ -105,17 +113,14 @@ header::after {
     margin-right: 160px; 
 }
 
-.btnbuscar{
-    color: var(--tipografia) !important;
-}
-
-.btnbuscar:hover{    
-    color: var(--colorAcento) !important;
-    text-shadow: 0 0 15px var(--colorAcento) !important;
-}
-
 .nav-link, .link{
     color: var(--colorTexto) !important;
+}
+
+.nav-link svg {
+    fill: var(--colorTexto);
+    width: 25px !important;
+    height: auto !important;
 }
 
 .nav-link:hover, .link:hover{
@@ -123,10 +128,9 @@ header::after {
     text-shadow: 0 0 15px var(--colorAcento) !important;
 }
 
-.neonBox{
-    background-color: rgba(0, 0, 0, 0.8) !important;
-    box-shadow: 0 0 15px var(--colorPrimario) !important;
-    max-width: 400px; margin: auto !important;
+.nav-link:hover svg {
+    fill: var(--colorAcento) !important;
+    filter: drop-shadow(0 0 4px var(--colorAcento)) drop-shadow(0 0 15px var(--colorAcento));
 }
 
 /* INDEX */
