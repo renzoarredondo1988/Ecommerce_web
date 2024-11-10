@@ -1,3 +1,8 @@
+{% extends "InterfazGeneral/base.html" %}
+
+{% load static %}
+
+{% block content %}
 <h1>{{ producto.nombre }}</h1>
 <p>{{ producto.descripcion }}</p>
 <p>Stock: {{ producto.stock }}</p>
@@ -21,3 +26,5 @@
 <button><a href="{% url 'producto:api_mostrar_catalogo' %}">Volver al catalogo</a></button>
 
 <a href="{% url 'carro:carrito' %}" class="btn btn-danger">Ir al carrito</a>
+
+{% endblock %}
