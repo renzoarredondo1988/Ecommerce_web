@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,39 +19,48 @@
             <div class="container-fluid">
                 <!-- Logo -->
                 <a class="navbar-brand" href="{% url 'interfaz_general:home' %}">Code<span>Hive</span></a>
-    
+
                 <!-- Botón de colapsar para pantallas pequeñas -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false"
+                    aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-    
+
                 <!-- Barra de búsqueda centrada -->
-                <form class="d-flex justify-content-center mx-auto search-form" method="GET" >
-                    <input class="form-control me-2 inputbuscar" type="search" placeholder="Buscar en CodeHive" aria-label="Search">
+                <form class="d-flex justify-content-center mx-auto search-form" method="GET">
+                    <input class="form-control me-2 inputbuscar" type="search" placeholder="Buscar en CodeHive"
+                        aria-label="Search">
                     <button class="btn btnbuscar" type="submit">Buscar</button>
                 </form>
-    
+
                 <!-- Menú de navegación colapsable -->
                 <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo03">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link {% if request.resolver_match.url_name == 'productos' %}active{% endif %}" 
-                            href="{% url 'producto:api_mostrar_catalogo' %}">Productos</a>
+                            <a class="nav-link {% if request.resolver_match.url_name == 'productos' %}active{% endif %}"
+                                href="{% url 'producto:api_mostrar_catalogo' %}">Productos</a>
                         </li>
                         <li class="nav-item">
                             <!--Botón carrito-->
                         </li>
                         <li class="nav-item">
+                            {% if authenticated %}
+                            <span class="nav-link">Hola, {{ user_name }}</span>
+                            <a class="nav-link" href="{% url 'gestion_usuario:logout' %}">Log Out</a>
+                            {% else %}
                             <a class="nav-link" href="{% url 'gestion_usuario:inicio_sesion' %}">Log In</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'gestion_usuario:registro_usuario' %}">Sign In</a>
-                        </li>  
+                        </li>
+                        {% endif %}
+
                     </ul>
                 </div>
             </div>
-        </nav>   
-    </header>    
+        </nav>
+    </header>
     <main>
         <div>
             <div>
@@ -58,15 +68,15 @@
             </div>
             <div>
                 <!--Sección dinámica-->
-              
+
                 {% block content %}
-            
+
                 {% endblock %}
             </div>
         </div>
     </main>
 
-    
+
     <footer class="footer text-faded text-center py-5">
         <div class="container">
             <p class="m-0 mbt">
@@ -81,8 +91,9 @@
             <p class="m-0 mbt1 text-neon">CodeHive Team | UTN San Rafael</p>
         </div>
     </footer>
-<script src="../../static/InterfazGeneral/vendor/jquery/jquery.min.js"></script>
-<script src="../../static/InterfazGeneral/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../../static/InterfazGeneral/vendor/jquery/jquery.min.js"></script>
+    <script src="../../static/InterfazGeneral/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 </body>
+
 </html>

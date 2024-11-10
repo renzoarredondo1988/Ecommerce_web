@@ -9,6 +9,12 @@ def auth_and_cart_info(request):
     user_pais= None
     total = 0
 
+
+    if 'carro' in request.session:
+            for item in request.session['carro'].values():
+                precio = float(item.get('precio', 0))  # Si no tiene precio, usa 0
+                cantidad = int(item.get('cantidad', 1))  # Si no tiene cantidad, usa 1
+                total += precio * cantidad  # Multiplicamos por cantidad si existe
     # Verificar si el usuario está autenticado
     if request.session.get('user_id'):  # Verificamos si hay un user_id en la sesión
         authenticated = True
@@ -17,11 +23,7 @@ def auth_and_cart_info(request):
         user_name = request.session['username']  # Guardamos el nombre del usuario
         user_pais= request.session['user_pais']
         # Calcular el total del carrito
-        if 'carro' in request.session:
-            for item in request.session['carro'].values():
-                precio = float(item.get('precio', 0))  # Si no tiene precio, usa 0
-                cantidad = int(item.get('cantidad', 1))  # Si no tiene cantidad, usa 1
-                total += precio * cantidad  # Multiplicamos por cantidad si existe
+      
 
     return {
         'authenticated': authenticated, #{% if request.session.authenticated %}
