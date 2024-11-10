@@ -214,12 +214,13 @@
 
 <details>
   
-</details>
   <summary><h3>Videos Presentación</h3></summary>
 
   - <a href="https://drive.google.com/file/d/1qQoJSVH7uMOI6qxVnecUApc4pvGBYzcl/view?usp=drive_link">Breve video explicativo del proyecto</a>
 
   - <a href="https://www.canva.com/design/DAGWDLMEfk0/q8WtSj9n-M-0LUYLuIEpFw/edit?utm_content=DAGWDLMEfk0&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton">Proceso de trabajo en equipo y desarrollo del proyecto</a>
+  
+</details>
   
 <details>    
   <summary><h3>Dream Team</h3></summary>
