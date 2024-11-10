@@ -460,4 +460,12 @@ select.form-control option:hover {
     gap: 10px;
 }
 
+.noCarrito{
+    color: var(--colorTexto);
+    font-family: var(--tipografia);
+    margin-bottom: 25px;
+    text-align: center;
+    padding-top: 20px !important;
+}
+
 /* ----------------------------------------------------------------------------------------------------- */
