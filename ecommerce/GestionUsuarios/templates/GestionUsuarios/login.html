@@ -1,0 +1,39 @@
+{% extends "InterfazGeneral/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+
+
+<div class="d-flex align-items-center justify-content-center">
+    <div class="container text-center">
+        <div>
+            <div class="text-neon mt-2">
+                <h2 class="">Bienvenido!</h2>
+            </div>
+            <div class="neonBox border border-primary p-4">    
+                <form action="{% url 'gestion_usuario:inicio_sesion' %}" method="post"id="formLogin">{% csrf_token %} 
+                    <div class="mb-2">
+                            <!--<label for="login_email">Correo electrónico:</label>-->
+                        <input type="email" class="form-control" id="login_email" name="login_email" placeholder="Correo electrónico" required>
+                    </div>
+                    <div class="mb-2">
+                            <!--<label for="login_password">Contraseña:</label>-->
+                        <input type="password" class="form-control" id="login_password" name="login_password" placeholder="Contraseña" required>
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary btn-neon">Logearse</button> 
+                            <!--deberia agregar en vez de boton un formulario para redirigir a la vista de home,comentar en meet-->                   
+                        <a href="{% url 'interfaz_general:home' %}"><button type="button" id="closeButton" class="btn btn-primary a-btn">Cerrar</button></a>
+                    </div>
+                    <p id="alertLogin" style="color:red;">{% if error_message %}{{ error_message }}{% endif %}</p>
+                        <!-- <p id="alertLogin"></p> -->
+                    </form>
+                </div>
+        </div>
+    </div>  
+</div>         
+    <!--script src=""></!--script>-->
+
+    {% endblock %}

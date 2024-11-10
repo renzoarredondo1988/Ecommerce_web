@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba de Autenticación</title>
+</head>
+<body>
+    {% if authenticated %}
+        <h1>Bienvenido, {{ user_name }}!</h1>
+        <p>Has iniciado sesión con éxito.</p>
+        <p>Correo: {{ user_email }}</p>
+        <p>ID de usuario: {{ user_id }}</p>
+        <p>País: {{ user_pais }}</p>
+        <a href="{% url 'interfaz_general:home' %}">Cerrar sesión</a>
+    {% else %}
+        <h1>No has iniciado sesión</h1>
+        <p>Por favor, <a href="{% url 'gestion_usuario:inicio_sesion' %}">inicia sesión</a> para acceder a esta página.</p>
+    {% endif %}
+</body>
+</html>
+aaaaaa
+bbbbbbbbbb

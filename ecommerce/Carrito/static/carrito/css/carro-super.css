@@ -1,0 +1,46 @@
+/* Color principal: #363EFF
+Color secundario: #000100
+Color acento: #FC6E22
+fuente: ROBOTO */
+
+.cart-btn{
+    position: fixed;
+    top: 91vh;
+    right: 40px;
+    background-color: #FC6E22;
+    padding: 10px;
+    border-radius: 50%;
+    height: 26px;
+    width: 26px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.cart-btn:hover{
+    cursor: pointer;
+    opacity: 0.9;
+    transform: scale(1.1);
+}
+
+.cart-counter{
+    display: fixed; /*none*/
+    position: fixed;
+    top: 91vh;
+    right: 40px;
+    color: black;
+    font-weight: bold; /* Cambia el texto a negrita */
+    text-align: center;
+    padding: 4px;
+    border-radius: 50%;
+    height: 17px;
+    width: 17px;
+    font-size: 15px;
+}
+
+.cart-counter:hover{
+    cursor: pointer;
+    opacity: 0.9;
+    transform: scale(1.1);
+}
+
+/* ------------------------------------- */
+/* Carrito de compras */

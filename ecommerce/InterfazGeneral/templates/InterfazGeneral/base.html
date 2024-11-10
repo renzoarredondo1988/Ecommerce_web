@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <!-- Styles -->
+    <link rel="stylesheet" href="../../static/InterfazGeneral/css/styleCss.css">
+    <!-- Boostrap -->
+    <link rel="stylesheet" href="../../static/InterfazGeneral/vendor/bootstrap/css/bootstrap.min.css">
+
+    <title>CodeHive</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <!-- Logo -->
+                <a class="navbar-brand" href="{% url 'interfaz_general:home' %}">Code<span>Hive</span></a>
+
+                <!-- Botón de colapsar para pantallas pequeñas -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <!-- Menú de navegación colapsable -->
+                <div class="collapse navbar-collapse justify-content-end mr-2" id="navbarTogglerDemo03">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link {% if request.resolver_match.url_name == 'productos' %}active{% endif %}"
+                                href="{% url 'producto:api_mostrar_catalogo' %}">Productos</a>
+                        </li>
+                        {% if authenticated %}
+                        <li class="nav-item">                            
+                            <span class="nav-link">Hola, {{ user_name }}</span>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="{% url 'gestion_usuario:logout' %}">Log Out</a>
+                            {% else %}
+                        </li>
+                        <li>
+                            <a class="nav-link" href="{% url 'gestion_usuario:inicio_sesion' %}">Log In</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'gestion_usuario:registro_usuario' %}">Sign In</a>
+                        </li>
+                        {% endif %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'carro:carrito' %}">   
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path class="svg" d="M0 24C0 10.7 10.7 0 24 0L69.5 0c22 0 41.5 12.8 50.6 32l411 0c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3l-288.5 0 5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5L488 336c13.3 0 24 10.7 24 24s-10.7 24-24 24l-288.3 0c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5L24 48C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/></svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div>
+            <div>
+                <!--Sección categorías-->
+            </div>
+            <div>
+                <!--Sección dinámica-->
+
+                {% block content %}
+
+                {% endblock %}
+            </div>
+        </div>
+    </main>
+
+
+    <footer class="footer text-faded text-center py-5">
+        <div class="container">
+            <p class="m-0 mbt">
+                <a href="https://github.com/AndresPampa" class="link">Andrés Álvarez</a> ·
+                <a href="https://github.com/renzoarredondo1988" class="link">Renzo Arredondo</a> ·
+                <a href="https://github.com/Flor-balladares" class="link">Florencia Balladares</a> ·
+                <a href="https://github.com/cococalabro" class="link">Ángel Calabró</a> ·
+                <a href="https://github.com/GiulianaDeEt" class="link">Giuliana Dealbera</a> ·
+                <a href="https://github.com/Tiago0613" class="link">Tiago Ibarola</a> ·
+                <a href="https://github.com/YESS-BAIT-LEJEM" class="link">Yessica Reynoso</a>
+            </p>
+            <p class="m-0 mbt1 text-neon">CodeHive Team | UTN San Rafael</p>
+        </div>
+    </footer>
+    <script src="../../static/InterfazGeneral/vendor/jquery/jquery.min.js"></script>
+    <script src="../../static/InterfazGeneral/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

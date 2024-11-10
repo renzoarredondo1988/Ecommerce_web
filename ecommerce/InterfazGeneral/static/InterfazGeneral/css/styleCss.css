@@ -1,0 +1,470 @@
+:root{
+    --tipografia: 'Roboto', sans-serif;
+    --colorPrimario: #363eff;
+    --colorSecundario: #000100;
+    --colorAcento: #fc6e22;
+    --colorTexto: #e3e3e3;
+}
+
+body{
+    background: linear-gradient(180deg, #000000 60%, #000080 100% );
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    margin: 0;
+    color: var(--colorTexto);
+}
+
+header{
+    z-index: 100;
+    position: relative;
+    padding: 5px 35px;
+    background-color: var(--colorSecundario);
+    font-family: var(--tipografia);
+}
+
+header::after {
+    content: "";
+    position: absolute;
+    bottom: 13px; 
+    left: 0px;
+    width: 100%;
+    height: 0.5px;
+    background-color: rgba(45, 34, 252, 0.3); /* Color de la línea neón */
+    box-shadow: 
+        0 5px 10px var(--colorPrimario),   
+        0 15px 15px rgba(34, 45, 252, 0.5), 
+        0 20px 20px rgba(45, 34, 252, 0.2); 
+}
+
+/* ESTILOS DE PALABRAS */
+.text-neon{
+    color: var(--colorTexto);
+    font-family: var(--tipografia);
+    margin-bottom: 25px;
+} /* LETRA BLANCA */ 
+
+.text-primary {
+    color: var(--colorTexto);
+    text-shadow: 0 0 8px var(--colorPrimario), 0 0 12px var(--colorPrimario);
+    font-family: var(--tipografia) !important;
+} /* LETRA NEON AZUL */
+
+.text-large {
+    font-size: 2.0rem !important;
+    font-family: var(--tipografia) !important;
+}
+
+.text-medium{
+    font-size: 1.50rem !important;
+    font-family: var(--tipografia) !important;
+}
+
+.text-small {
+    font-size: 1.25rem !important;
+    font-family: var(--tipografia) !important;
+}
+
+/* BOTONES */
+.btn-neon {
+    background-color: var(--colorPrimario) !important;
+    color: var(--colorSecundario) !important;
+    padding: 3px 0px !important;
+    transition: 0.2s ease-in-out !important;
+    width: 100% !important;
+    margin-top: 20px !important;
+    font-weight: bold !important;
+    font-family: var(--tipografia) !important;
+} /* BOTÓN PRINCIPAL */
+
+.btn-neon:hover {
+    box-shadow: 0 0 2px var(--colorPrimario), 0 0 6px var(--colorPrimario), 0 0 10px var(--colorPrimario) !important;    
+    background-color: var(--colorPrimario) !important;
+    color: var(--colorTexto) !important;
+}
+
+.a-btn{
+    background-color: var(--colorSecundario) !important;
+    border-color: var(--colorPrimario) !important;
+    color: var(--colorTexto) !important;
+    padding: 3px 0px !important;
+    transition: 0.2s ease-in-out !important;    
+    width: 100% !important;
+    margin-top: 10px !important;
+    font-family: var(--tipografia) !important;
+} /* BOTÓN SECUNDARIO */
+
+.a-btn:hover{    
+    background-color: var(--colorSecundario) !important;
+    border-color: var(--colorSecundario) !important;
+    color: var(--colorTexto) !important;
+}
+
+/* CAJA DE NEON*/
+.neonBox{
+    background-color: rgba(0, 0, 0, 0.8) !important;
+    box-shadow: 0 0 15px var(--colorPrimario) !important;
+    max-width: 400px; margin: auto !important;
+}
+
+/* HEADER */
+.navbar-brand{
+    color: var(--colorTexto) !important;
+    font-size: 2em !important;
+}
+
+.navbar-brand span{
+    color: var(--colorPrimario) !important;
+    text-shadow: 0 0 12px var(--colorPrimario) !important;
+    margin-right: 160px; 
+}
+
+.nav-link, .link{
+    color: var(--colorTexto) !important;
+}
+
+.nav-link svg, svg {
+    fill: var(--colorTexto);
+    width: 25px !important;
+    height: auto !important;
+}
+
+.nav-link:hover, .link:hover{
+    color: var(--colorAcento) !important;
+    text-shadow: 0 0 15px var(--colorAcento) !important;
+}
+
+.nav-link:hover svg {
+    fill: var(--colorAcento) !important;
+    filter: drop-shadow(0 0 4px var(--colorAcento)) drop-shadow(0 0 15px var(--colorAcento));
+}
+
+/* INDEX */
+.img-banner{
+    width: 45%  !important;
+    height: auto !important;
+    padding-right: 5% !important;
+    margin-left: -10% !important;
+    z-index: 2 !important;
+    margin-top: 15px !important;
+    margin-bottom: 20px !important;
+}
+
+.custom-card{
+    width: 75% !important;
+    height: auto !important;
+    margin-top: 20px !important;
+}
+
+.custom-card img{
+    width: 100% !important;
+    height: auto;
+    max-height: 180px !important;
+    object-fit: cover !important;
+}
+
+.items-cards > div{
+    margin-left: -15px !important;
+    margin-right: -15px !important;
+}
+
+/* FORMULARIO LOGIN/REGISTER */
+
+.form-control{
+    background-color: var(--colorSecundario) !important;
+    border: 1px solid var(--colorPrimario) !important;
+    height: 45px !important;
+    width: 100%; 
+}
+.form-control:focus  {
+    border-color: var(--colorPrimario) !important;
+    box-shadow: 0 0 8px var(--colorPrimario) !important;
+}
+select.form-control{
+    color: var(--colorTexto) !important;
+    height: 45px !important;
+}
+
+select.form-control option { 
+    background-color: black !important; 
+    color: var(--colorTexto) !important; 
+    border-color: var(--colorPrimario) !important;
+    box-shadow: 0 0 8px var(--colorPrimario) !important;
+}
+
+select.form-control option:focus { 
+    border-color: var(--colorPrimario) !important; /* Cambia el borde azul al hacer clic */ 
+    box-shadow: 0 0 8px var(--colorPrimario) !important; /* Añade sombra si es necesario */ 
+    background-color: #000080 !important;
+} 
+select.form-control option:hover { 
+    border-color: var(--colorPrimario) !important; /* Cambia el borde al pasar el cursor */ 
+}
+
+/* PRODUCTO */
+.filter-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.filter-item {
+    display: flex;
+    align-items: center;
+}
+
+.containerCat{
+    background-color: rgba(0, 0, 0, 0.8) !important;
+    box-shadow: 0 0 15px var(--colorPrimario) !important;
+    width: 800px !important; 
+    margin-left: auto !important;
+    margin-right: auto !important;  
+    padding: 8px 0px !important;
+}
+
+.rango-largo { 
+    width: 107% !important;  
+}
+
+.textFor{
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+}
+
+/* DETALLE DE PRODUCTO */
+.detailBox{
+    background-color: rgba(0, 0, 0, 0.8) !important;
+    box-shadow: 0 0 15px var(--colorPrimario) !important;
+    width: 70% !important; 
+    margin-top: 15px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.btnColorRed, .btnColorGreen, .detail-btn {
+    padding: 3px 0px !important;
+    transition: 0.2s ease-in-out !important;
+    width: 100% !important;
+    margin-bottom: -10% !important;
+    font-family: var(--tipografia) !important;
+}
+
+.btnColorRed, .btnColorGreen {
+    background-color: var(--colorSecundario) !important;
+    border-color: var(--colorPrimario) !important;
+    color: var(--colorTexto) !important;
+}
+
+.detail-btn {
+    background-color: var(--colorAcento) !important;
+    color: var(--colorSecundario) !important;
+}
+
+.btnColorGreen:hover{
+    background-color: var(--colorSecundario) !important;
+    border-color: #20961c !important;
+    color: #20961c !important;
+    font-weight: bold !important;
+}
+
+.btnColorRed:hover{
+    background-color: var(--colorSecundario) !important;
+    border-color: #cc2a2a !important;
+    color: #cc2a2a  !important;    
+    font-weight: bold !important;
+}
+
+.detail-btn:hover {
+    box-shadow: 0 0 2px var(--colorAcento), 0 0 6px var(--colorAcento), 0 0 10px var(--colorAcento) !important;    
+    background-color: var(--colorAcento) !important;
+    color: var(--colorTexto) !important;
+    font-weight: bold !important;
+}
+
+
+.d-flex .me-1, .d-flex .ms-1 {
+    flex: 1; /* Hacer que cada contenedor de botón ocupe el mismo ancho */
+}
+
+
+.card-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-body h5,
+.card-body p {
+    margin-bottom: 10px;
+}
+
+.card-body .btn {
+    margin-bottom: 2px;
+}
+
+.card-body .btn:last-child {
+    margin-bottom: 0;
+}
+
+.card-body .mt-2 {
+    margin-top: 10px;
+}
+
+
+/* --------------------------------------------------------------------------------------------------- */
+/* Contenedor de la lista de productos con scroll horizontal */
+.modal-body {
+    display: flex;
+    overflow-x: auto; /* Scroll horizontal si hay muchos productos */
+    justify-content: center;
+    padding: 10px;
+    gap: 15px;
+    scroll-behavior: smooth; /* Desplazamiento suave */
+}
+  
+  /* Estilos individuales de cada producto */
+.product {
+    display: flex;
+    flex-direction: column; /* Coloca los elementos verticalmente dentro de cada producto */
+    align-items: center;
+    width: 150px; /* Ancho fijo para cada producto */
+    border: 1px solid #e0e0e0;
+    padding: 10px;
+    background-color: transparent;
+    border-radius: 5px;
+    text-align: center;
+    flex-shrink: 0; /* Previene que los productos se reduzcan demasiado */
+    box-shadow: 0 0 5px var(--colorPrimario), 0 0 5px var(--colorPrimario), 0 0 6px var(--colorPrimario) !important;
+}
+  
+  /* Contenedor de la imagen para mantener el tamaño y proporciones */
+.image-container {
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+  
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+}
+  
+  /* Información del producto */
+.product-info h4 {
+    font-size: 16px;
+    margin: 5px 0;
+    color: #333;
+}
+  
+  /* Contenedor del subtotal */
+.subtotal {
+    font-size: 14px;
+    color: #555;
+    margin-top: 5px;
+    font-weight: bold;
+}
+  
+  /* Contenedor de la cantidad */
+.quantity {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
+}
+  
+.quantity-btn-increase, .quantity-btn-decrease {
+    font-size: 18px;
+    padding: 5px 5px;
+    text-decoration: none;
+    border: 1px solid #ddd;
+    margin: 0 5px;
+    cursor: pointer;
+    box-shadow: 0 0 5px var(--colorPrimario), 0 0 5px var(--colorPrimario), 0 0 6px var(--colorPrimario) !important;
+}
+  
+  /* Mostrar la cantidad actual del producto */
+.quantity-input {
+    font-size: 16px;
+    padding: 5px;
+    width: 30px;
+    text-align: center;
+}
+  
+  /* Precio del producto */
+.price {
+    font-weight: bold;
+    color: #333;
+    margin-top: 5px;
+}
+
+.total-price{
+    background-color: var(--colorAcento) !important;
+    color: var(--colorSecundario) !important;
+    padding: 5px 5px !important;
+    width: 100% !important;
+    margin-top: 20px !important;
+    font-weight: bold !important;
+    font-family: var(--tipografia) !important;
+    border-radius: 5px;
+}
+
+/* Footer del modal */
+.modal-footer {
+    margin-top: 20px; /* Espacio superior para separar del listado de productos */
+    text-align: center;
+    font-size: 24px; /* Tamaño de fuente más grande para destacarlo */
+    font-weight: bold;
+    color: var(--colorPrimario) !important;
+    padding: 15px;
+    width: 50%; /* Anchura del footer para que no ocupe todo el ancho */
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+}
+
+.auth{
+    text-align: center;
+    justify-content: center;
+    font-size: medium;
+    font-weight: bold;
+    color: crimson;
+    padding: 10px 10px;
+}
+
+
+.vaciar-carro{
+    font-size: 18px;
+    padding: 5px;
+    text-decoration: none;
+    border: 1px solid #ddd;
+    margin: 0 5px;
+    cursor: pointer;
+    box-shadow: 0 0 5px var(--colorPrimario), 0 0 5px var(--colorPrimario), 0 0 6px var(--colorPrimario) !important;
+    justify-content: center;
+    text-align: center;
+    width: 150px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.modal-title{
+    display: none;
+}
+
+.auth a{
+    gap: 10px;
+}
+
+.noCarrito{
+    color: var(--colorTexto);
+    font-family: var(--tipografia);
+    margin-bottom: 25px;
+    text-align: center;
+    padding-top: 20px !important;
+}
+
+/* ----------------------------------------------------------------------------------------------------- */

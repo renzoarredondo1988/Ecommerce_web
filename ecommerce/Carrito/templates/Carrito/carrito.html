@@ -1,0 +1,96 @@
+{% extends "InterfazGeneral/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<title>Carrito</title>
+
+
+  <div class="modal-title">Carrito</div>
+
+
+
+  {% if request.session.carro %}
+  <!-- modal(carrito por dentro) -->
+  <!-- <div class="modal-overlay" id="modal-overlay"></div> -->
+  <!-- Es como un background para mostrar la web en segundo plano-->
+  <div class="modal-container" id="modal-container">
+
+    <div class="vaciar-carro">
+      <a href="{% url 'carro:limpiar' %}" class="vaciar-carro-btn">Vaciar carro</a>
+    </div>
+    
+    <div class="modal-body">
+      {% for key, item in request.session.carro.items %}
+      <div class="product">
+        <div class="image-container">
+          <img id="imagen1" class="product" src="{{item.imagen}}" />
+        </div>
+
+        <div class="product-info">
+          <h4 class="text-primary text-medium">{{item.nombre}}</h4>
+        </div>
+
+        <div class="quantity">
+          <!-- Botón para restar producto -->
+          <a href="{% url 'carro:restar' item.producto_id %}" class="quantity-btn-decrease">-</a>
+      
+          <!-- Mostrar la cantidad actual del producto -->
+          <span class="quantity-input text-neon text-medium">{{ item.cantidad }}</span>
+      
+          <!-- Botón para agregar producto -->
+          <a href="{% url 'carro:agregar' item.producto_id %}" class="quantity-btn-increase">+</a>
+      </div>
+
+
+      <!-- Botón para eliminar producto seleccionado -->
+      <div class="price">
+        <p class="text-neon"> Subtotal  </p>
+        <p class="text-neon text-medium">{% widthratio item.cantidad 1 item.precio %} $</p>
+      </div>
+        <a href="{% url 'carro:eliminar' item.producto_id %}" class="quantity-btn-increase">❌</a>
+      </div>
+
+      {% endfor %}
+
+  
+      <!-- {% if authenticated %}
+      <a href="{% url 'pagos:metodo_pago' %}" class="quantity-btn-increase">Pagar</a>
+      {% else %}
+      <p>Debe loguearse para poder pagar</p>
+      {% endif %} -->
+    </div>
+  </div>
+
+  <div class="auth">
+    {% if authenticated %}
+      <a href="{% url 'pagos:metodo_pago' %}" class="quantity-btn-increase">Pagar</a>
+      {% else %}
+      <p>Debe loguearse para poder pagar</p>
+      {% endif %}
+  </div>
+
+  <!-- MODAL FOOTER -->
+  <div class="modal-footer">
+    <div class="total-price">Total: ${{importe_total_carro}}</div>
+  </div>
+
+
+
+  {% else %}
+
+  <div class="neonBox mt-5 d-flex">
+      <p class="noCarrito text-large">No has seleccionado ningún producto aún.</p>
+    {% endif %}
+  </div>
+
+  <!-- Script -->
+  <!-- <script src="../../static/carrito/js/carrito.js"></script> -->
+
+  <!-- Boostrap -->
+
+  
+
+{% endblock %}
+

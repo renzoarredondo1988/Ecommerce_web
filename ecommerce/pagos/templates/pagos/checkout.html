@@ -1,0 +1,47 @@
+{% extends "InterfazGeneral/base.html" %}
+
+{% load static %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row justify-content-between">
+        <!-- Instrucciones de pago a la izquierda -->
+        <div class="col-12 col-md-6">
+            <div class="neonBox border border-primary p-4">
+                <h1 class="text-neon text-primary">Instrucciones de Pago</h1>
+                <p class="text-neon text-medium">
+                    Para realizar el pago de tus productos, podrás hacer uso de Mercado Pago 
+                     
+                </p>
+            </div>
+        </div>
+
+        <!-- Botón de pago MercadoPago a la derecha -->
+        <div class="col-12 col-md-6 d-flex justify-content-center align-items-center">
+            <div>
+                
+                <!-- Botón de pago -->
+                <button id="checkout-btn" class="btn btn-primary btn-lg"></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://sdk.mercadopago.com/js/v2"></script>
+<script>
+    const mp = new MercadoPago('{{ public_key }}', {
+        locale: 'es-AR'
+    });
+
+    mp.checkout({
+        preference: {
+            id: '{{ preference_id }}'
+        },
+        render: {
+            container: '#checkout-btn', // ID del elemento donde se creará el botón
+            label: 'Pagar con MercadoPago', // Etiqueta del botón
+        }
+    });
+</script>
+{% endblock %}
