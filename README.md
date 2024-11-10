@@ -137,6 +137,90 @@
   </li>
 </details>
 
+<details>
+  <summary><h3>Estructura del Proyecto</h3></summary>
+
+    ecommerce
+    │
+    ├── manage.py              # Archivo principal para interactuar con el proyecto Django
+    ├── requirements.txt       # Lista de dependencias del proyecto
+    ├── db.sqlite3             # Base de datos SQLite (utilizada durante el desarrollo)
+    │
+    ├── ecommerce              # Carpeta principal del proyecto con la configuración de Django
+    │   ├── __init__.py        # Marca la carpeta como un paquete Python
+    │   ├── settings.py        # Configuraciones generales del proyecto
+    │   ├── urls.py            # Definición de rutas de la aplicación
+    │   ├── wsgi.py            # Archivo de punto de entrada para WSGI (Web Server Gateway Interface)
+    │   └── asgi.py            # Archivo de punto de entrada para ASGI (para despliegue en servidores asíncronos)
+    │
+    ├── media/                 # Archivos multimedia subidos por los usuarios, como imágenes de productos
+    │   └── tienda/            # Carpeta donde se almacenan las imágenes de productos
+    │    
+    └── apps/                      # Carpeta que contiene las aplicaciones del proyecto
+        ├── carrito/               # Aplicación relacionada con la gestión del carrito de compras
+        │   ├── migrations/        # Archivos de migración para la base de datos
+        │   ├── __init__.py        # Marca la carpeta como un paquete Python
+        │   ├── admin.py           # Configuración del panel de administración de Django
+        │   ├── apps.py            # Configuración de la aplicación
+        │   ├── models.py          # Modelos de datos relacionados con el carrito
+        │   ├── views.py           # Lógica de las vistas de la aplicación
+        │   ├── urls.py            # Rutas específicas de esta aplicación
+        │   └── templates/         # Plantillas HTML específicas de la aplicación
+        ├── gestionusuario/        # Aplicación relacionada con la gestión de usuarios
+        │   ├── __init__.py        # Marca la carpeta como un paquete Python
+        │   ├── admin.py           # Configuración del panel de administración de Django
+        │   ├── models.py          # Modelos de datos relacionados con los usuarios
+        │   ├── views.py           # Lógica de vistas de esta aplicación
+        │   ├── urls.py            # Rutas específicas de esta aplicación
+        │   └── templates/         # Plantillas HTML específicas de esta aplicación
+        ├── interfazgeneral/       # Aplicación relacionada con la interfaz de usuario general
+        │   ├── __init__.py        # Marca la carpeta como un paquete Python
+        │   ├── admin.py           # Configuración del panel de administración de Django
+        │   ├── models.py          # Modelos de datos específicos para la interfaz
+        │   ├── views.py           # Lógica de vistas de esta aplicación
+        │   ├── urls.py            # Rutas específicas de esta aplicación
+        │   └── templates/         # Plantillas HTML específicas de esta aplicación
+        │   └── static/                # Archivos estáticos como imágenes, JavaScript y CSS
+        │       ├── css/               # Estilos CSS
+        │       └── vendor/ 
+        │           ├── bootstrap        # Carpeta que incluye los archivos de Bootstrap.
+        │           │   ├── css          Dentro encontrarás los subdirectorios css/ y js/, 
+        │           │   └── js           que contienen los archivos CSS y JS de Bootstrap. 
+        │           ├── font-awesome
+        │           └── jquery             
+        ├── pagos/                 # Aplicación relacionada con el proceso de pagos
+        │   ├── __init__.py        # Marca la carpeta como un paquete Python
+        │   ├── admin.py           # Configuración del panel de administración de Django
+        │   ├── models.py          # Modelos de datos relacionados con los pagos
+        │   ├── views.py           # Lógica de vistas de esta aplicación
+        │   ├── urls.py            # Rutas específicas de esta aplicación
+        │   └── templates/         # Plantillas HTML específicas de esta aplicación
+        ├── pagosypedidos/         # Aplicación relacionada con pagos y pedidos
+        │   ├── __init__.py        # Marca la carpeta como un paquete Python
+        │   ├── admin.py           # Configuración del panel de administración de Django
+        │   ├── models.py          # Modelos de datos relacionados con los pagos y pedidos
+        │   ├── views.py           # Lógica de vistas de esta aplicación
+        │   ├── urls.py            # Rutas específicas de esta aplicación
+        │   └── templates/         # Plantillas HTML específicas de esta aplicación
+        └── productos/             # Aplicación relacionada con la gestión de productos
+            ├── __init__.py        # Marca la carpeta como un paquete Python
+            ├── admin.py           # Configuración del panel de administración de Django
+            ├── models.py          # Modelos de datos relacionados con los productos
+            ├── views.py           # Lógica de vistas de esta aplicación
+            ├── urls.py            # Rutas específicas de esta aplicación
+            └── templates/         # Plantillas HTML específicas de esta aplicación
+      
+</details>
+
+<details>
+  
+</details>
+  <summary><h3>Videos Presentación</h3></summary>
+
+  - <a href="https://drive.google.com/file/d/1qQoJSVH7uMOI6qxVnecUApc4pvGBYzcl/view?usp=drive_link">Breve video explicativo del proyecto</a>
+
+  - <a href="https://www.canva.com/design/DAGWDLMEfk0/q8WtSj9n-M-0LUYLuIEpFw/edit?utm_content=DAGWDLMEfk0&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton">Proceso de trabajo en equipo y desarrollo del proyecto</a>
+  
 <details>    
   <summary><h3>Dream Team</h3></summary>
   <p>Este proyecto fue desarrollado como parte del proyecto final para la Tecnicatura Universitaria en Programación dada por la <a href="https://www.frsr.utn.edu.ar/">UTN FRSR</a>.</p>
