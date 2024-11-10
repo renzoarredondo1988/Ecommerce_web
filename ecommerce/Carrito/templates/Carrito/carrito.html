@@ -29,7 +29,7 @@
         </div>
 
         <div class="product-info">
-          <h4>{{item.nombre}}</h4>
+          <h4 class="text-primary text-medium">{{item.nombre}}</h4>
         </div>
 
         <div class="quantity">
@@ -37,7 +37,7 @@
           <a href="{% url 'carro:restar' item.producto_id %}" class="quantity-btn-decrease">-</a>
       
           <!-- Mostrar la cantidad actual del producto -->
-          <span class="quantity-input">{{ item.cantidad }}</span>
+          <span class="quantity-input text-neon text-medium">{{ item.cantidad }}</span>
       
           <!-- Botón para agregar producto -->
           <a href="{% url 'carro:agregar' item.producto_id %}" class="quantity-btn-increase">+</a>
@@ -46,8 +46,8 @@
 
       <!-- Botón para eliminar producto seleccionado -->
       <div class="price">
-        <p> Subtotal  </p>
-        <p>{% widthratio item.cantidad 1 item.precio %} $</p>
+        <p class="text-neon"> Subtotal  </p>
+        <p class="text-neon text-medium">{% widthratio item.cantidad 1 item.precio %} $</p>
       </div>
         <a href="{% url 'carro:eliminar' item.producto_id %}" class="quantity-btn-increase">❌</a>
       </div>
