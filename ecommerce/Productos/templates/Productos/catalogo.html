@@ -62,7 +62,7 @@
                 <img src="{{producto.imagen.url}}" class="card-img-top" alt="{{ producto.nombre }}">
                 <div class="card-body">
                     <h5 class="text-neon text-small">{{ producto.nombre }}</h5>
-                    <p class="price text-neon text-small">${{ producto.precio }}</p> 
+                    <p class="text-neon text-small">${{ producto.precio }}</p> 
                     <a href="{% url 'producto:api_detalle_producto' producto.id %}" class="btn btn-neon mt-0">VER</a>
                 </div>
             </div>
