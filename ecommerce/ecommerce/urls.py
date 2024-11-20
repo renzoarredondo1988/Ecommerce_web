@@ -27,7 +27,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('usuarios/', include('GestionUsuarios.urls')),#url de la aplicacion gestion usuarios
     path('', include('InterfazGeneral.urls')), #url interfaz
-    path('carrito/', include('Carrito.urls')),  # Incluir las URLs del carrito
+    path('carrito/', include('carrito.urls')),  # Incluir las URLs del carrito
     path('pagos-y-pedidos/', include('PagosyPedidos.urls')),# Incluir las URLs de los pedidos 
     path('productos/', include('Productos.urls')),  # URL para la aplicación Productos
     path('pagos/', include(('pagos.urls', 'pagos'), namespace='pagos')),  # URL para la aplicación Productos

@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'GestionUsuarios',
     'Productos',
-    'Carrito',
+    'carrito',
     'InterfazGeneral',
     'PagosyPedidos',
     'pagos',
@@ -70,7 +70,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'Carrito.context_processors.auth_and_cart_info',
+                'carrito.context_processors.auth_and_cart_info',
                 
             ],
         },

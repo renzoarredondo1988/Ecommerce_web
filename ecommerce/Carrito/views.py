@@ -14,7 +14,7 @@ def carrito(request):
      productos=Producto.objects.all()
 
      
-     return render(request, "Carrito/carrito.html", {"productos": productos})#en el render de tienda.html, podre 
+     return render(request, "carrito/carrito.html", {"productos": productos})#en el render de tienda.html, podre 
 #acceder a los atributos del objeto productos, que se envian dentro de un dicc con la clave "productos"
 
 def agregar_producto(request,producto_id): #producto_id proviene de la URL que se llama al acceder a esta vista.

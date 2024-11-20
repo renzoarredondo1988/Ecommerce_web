@@ -1,5 +1,5 @@
 from django.urls import path
-from Carrito import views
+from carrito import views
 
 
 app_name="carro" #equivalente al namespace
