@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'GestionUsuarios',
     'productos',
     'carrito',
-    'InterfazGeneral',
+    'interfaz_general',
     'PagosyPedidos',
     'pagos',
     

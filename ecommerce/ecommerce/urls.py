@@ -26,7 +26,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('usuarios/', include('GestionUsuarios.urls')),#url de la aplicacion gestion usuarios
-    path('', include('InterfazGeneral.urls')), #url interfaz
+    path('', include('interfaz_general.urls')), #url interfaz
     path('carrito/', include('carrito.urls')),  # Incluir las URLs del carrito
     path('pagos-y-pedidos/', include('PagosyPedidos.urls')),# Incluir las URLs de los pedidos 
     path('productos/', include('productos.urls')),  # URL para la aplicación Productos
