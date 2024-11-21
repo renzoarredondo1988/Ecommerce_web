@@ -32,13 +32,13 @@ def api_detalle_producto(request, producto_id):
 
     # Verifica si el producto existe
     if not producto:
-        return render(request, 'Productos/producto_no_encontrado.html')
+        return render(request, 'productos/producto_no_encontrado.html')
 
     # Verifica si el producto ya está en el carrito
     carro = Carro(request)
     producto_en_carro = str(producto.id) in carro.carro  # Cambiado de producto['id'] a producto.id
 
-    return render(request, 'Productos/ver_producto.html', {'producto': producto, 'producto_en_carro': producto_en_carro})
+    return render(request, 'productos/ver_producto.html', {'producto': producto, 'producto_en_carro': producto_en_carro})
     
 
 
@@ -106,7 +106,7 @@ def filtrar_por_precio(request):
     productos = Producto.objects.filter(precio__gte=precio_min, precio__lte=precio_max)
     
     # Pasar los productos filtrados y los valores de precio al contexto
-    return render(request, 'Productos/catalogo.html', {
+    return render(request, 'productos/catalogo.html', {
         'productos': productos,
         'precio_min': precio_min,
         'precio_max': precio_max,
