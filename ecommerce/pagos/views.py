@@ -1,5 +1,5 @@
 from django.shortcuts import redirect,render
-from PagosyPedidos.models import Pedido, PedidoDetalle
+from pedidos.models import Pedido, PedidoDetalle
 from datetime import datetime
 import mercadopago
 from django.conf import settings

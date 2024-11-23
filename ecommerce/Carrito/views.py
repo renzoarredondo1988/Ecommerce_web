@@ -1,11 +1,7 @@
 from django.shortcuts import render
-from django.shortcuts import redirect
 from .carrito import Carro
-from GestionUsuarios.models import Producto
-from django.http import JsonResponse
+from usuarios.models import Producto
 from django.http import HttpResponseRedirect
-from django.urls import reverse
-import mercadopago
 from django.conf import settings
 
 

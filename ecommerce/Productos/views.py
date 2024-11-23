@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from carrito.carrito import Carro
-from GestionUsuarios.models import Producto, Categoria, Juego, Detalles
+from usuarios.models import Producto, Juego
 from django.db.models import Q
 from django.http import JsonResponse
 

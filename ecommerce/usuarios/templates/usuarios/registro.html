@@ -1,0 +1,67 @@
+
+{% extends "interfaz_general/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+
+
+
+<!-- archivo vacio, es necesario configurar la ruta del header y footer  global -->
+<div class="d-flex align-items-center justify-content-center">
+    <div class="container text-center">
+        <div>
+            <div class="">
+                <h2 class="text-neon mt-2">Regístrate</h2>
+            </div>
+            <div class="neonBox border border-primary p-4">
+                <form action="{% url 'gestion_usuario:registro_usuario' %}" method="post" id="formRegister">{% csrf_token %} 
+                    <div class="mb-2">
+                        <!--<label for="register_name">Nombre:</label>-->
+                        <input type="text" class="form-control"  id="register_name" name="register_name" placeholder="Nombre" required>
+                    </div>
+                    <div class="mb-2">
+                        <!--<label for="register_lastname">Apellido:</label>-->
+                        <input type="text" class="form-control" id="register_lastname" name="register_lastname" placeholder="Apellido" required>
+                    </div>
+                    <div class="mb-2">
+                        <!--<label for="country">País:</label>-->
+                        <select class="form-control" id="register_country" name="register_country" required>
+                            <option value="" selected disabled>--Elige el país--</option>
+                            <option value="argentina">Argentina</option>
+                            <option value="chile">Chile</option>
+                            <option value="uruguay">Uruguay</option>
+                            <option value="brasil">Brasil</option>
+                        </select>
+                    </div>
+                    <div class="mb-2">
+                        <!--<label for="register_email">Correo electrónico:</label>-->
+                        <input type="email" class="form-control"  id="register_email" name="register_email" placeholder="Correo electrónico"  required>
+                    </div>
+                    <div class="mb-2">
+                        <!--<label for="register_password">Contraseña:</label>-->
+                        <input type="password" class="form-control"  id="register_password" name="register_password" placeholder="Contraseña" required>
+                    </div>
+                    <div class="mb-2">
+                        <!--<label for="confirm_password">Confirmar contraseña:</label>-->
+                        <input type="password" class="form-control"  id="confirm_password" name="confirm_password" placeholder="Repite contraseña" required>
+                    </div>
+                    {% if error %}
+                        <p style="color: red;">{{ error }}</p> <!-- Mostrar mensaje de error -->
+                    {% endif %}
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary btn-neon">Registrarse</button>                    
+                        <a href="{% url 'interfaz_general:home' %}"><button type="button" class="btn btn-primary a-btn" id="closeButton">Cerrar</button></a>
+                    </div>
+                    <!-- <p id="alertRegister"></p> -->
+                </form>
+            </div>
+        </div>
+    </div>
+</div>     
+    
+  
+
+    {% endblock %}
+

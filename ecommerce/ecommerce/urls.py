@@ -25,10 +25,10 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('usuarios/', include('GestionUsuarios.urls')),#url de la aplicacion gestion usuarios
+    path('usuarios/', include('usuarios.urls')),#url de la aplicacion gestion usuarios
     path('', include('interfaz_general.urls')), #url interfaz
     path('carrito/', include('carrito.urls')),  # Incluir las URLs del carrito
-    path('pagos-y-pedidos/', include('PagosyPedidos.urls')),# Incluir las URLs de los pedidos 
+    path('pagos-y-pedidos/', include('pedidos.urls')),# Incluir las URLs de los pedidos 
     path('productos/', include('productos.urls')),  # URL para la aplicación Productos
     path('pagos/', include(('pagos.urls', 'pagos'), namespace='pagos')),  # URL para la aplicación Productos
 

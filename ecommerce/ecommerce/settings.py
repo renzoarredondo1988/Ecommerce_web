@@ -37,11 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'GestionUsuarios',
+    'usuarios',
     'productos',
     'carrito',
     'interfaz_general',
-    'PagosyPedidos',
+    'pedidos',
     'pagos',
     
 
@@ -139,7 +139,7 @@ MEDIA_URL = '/media/' #Idem anterior, pero aqui hace ref. a archivos del tipo im
 
 """STATICFILES_DIRS = [ #agregamos las rutas del proyecto y de la aplicacion
     BASE_DIR / 'static',
-    BASE_DIR / 'GestionUsuarios/static',
+    BASE_DIR / 'usuarios/static',
     BASE_DIR / 'InterfazGeneral/static',
     BASE_DIR / 'PagosyPedidos/static',
     BASE_DIR / 'Productos/static',
