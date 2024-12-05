@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .carrito import Carro
-from usuarios.models import Producto
+from productos.models import Producto
 from django.http import HttpResponseRedirect
 from django.conf import settings
 

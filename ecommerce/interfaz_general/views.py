@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from usuarios.models import Producto 
+from productos.models import Producto 
 #creo funciones con pass para configurar urls y settings
 # views.py en tu aplicación
 
